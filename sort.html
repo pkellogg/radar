@@ -508,7 +508,7 @@ style="margin-bottom:200px;font-family:roboto;">
 		</style>			  
 						  
 						  <script>
-						  $( function() {
+$( function() {
 						 
 							// There's the gallery and the trash
 							var $gallery = $( "#gallery" ),
@@ -570,7 +570,7 @@ style="margin-bottom:200px;font-family:roboto;">
 						 //DELETE
 							
 							// Image deletion function load
-							 var recycle_icon = "<a href='link/to/recycle/script/when/we/have/js/off' title='Recycle this image' class='ui-icon ui-icon-refresh'>Recycle<br />image</a>";
+							 var xxx_icon = "<a href=''  ></a>";   
 							function deleteImageLoad( $item ) {
 							  $item.fadeOut(function() {
 								var $list = $( "ul", $load ).length ?
@@ -578,7 +578,7 @@ style="margin-bottom:200px;font-family:roboto;">
 								  $( "<ul class='gallery ui-helper-reset'/>" ).appendTo( $load );
 						 
 								$item.find( "a.ui-icon-trash" ).remove();
-								$item.append( recycle_icon ).appendTo( $list ).fadeIn(function() {
+								$item.append( xxx_icon ).appendTo( $list ).fadeIn(function() {
 								  $item
 									.animate({ width: "48px" })
 									.find( "img" )
@@ -588,16 +588,17 @@ style="margin-bottom:200px;font-family:roboto;">
 							}   
 							
 							// Image deletion function gate
-							var recycle_icon = "<a href='link/to/recycle/script/when/we/have/js/off' title='Recycle this image' class='ui-icon ui-icon-refresh'>recycle</a>";
+
+							var xxx_icon = "<a href=''  ></a>";   
 							
 							function deleteImage( $item ) {
 							  $item.fadeOut(function() {
 								var $list = $( "ul", $gate ).length ?
 								  $( "ul", $gate ) :
-								  $( "<ul class='gallery ui-helper-reset'/>" ).appendTo( $gate );
+								   $( "<ul class='gallery ui-helper-reset'/>" ).appendTo( $gate );
 						 
-								$item.find( "a.ui-icon-trash" ).remove();
-								$item.append( recycle_icon ).appendTo( $list ).fadeIn(function() {
+								//$item.find( "a.ui-icon-trash" ).remove();
+								$item.append( xxx_icon ).appendTo( $list ).fadeIn(function() {
 								  $item
 									.animate({ width: "48px" })
 									.find( "img" )
@@ -607,7 +608,7 @@ style="margin-bottom:200px;font-family:roboto;">
 							}
 							
 							// Image deletion function slide
-							var recycle_icon = "<a href='link/to/recycle/script/when/we/have/js/off' title='Recycle this image' class='ui-icon ui-icon-refresh'>recycle</a>";
+							var xxx_icon = "<a href=''  ></a>";   
 							function deleteImageSlide( $item ) {
 							  $item.fadeOut(function() {
 								var $list = $( "ul", $slide ).length ?
@@ -615,7 +616,7 @@ style="margin-bottom:200px;font-family:roboto;">
 								  $( "<ul class='gallery ui-helper-reset'/>" ).appendTo( $slide );
 						 
 								$item.find( "a.ui-icon-trash" ).remove();
-								$item.append( recycle_icon ).appendTo( $list ).fadeIn(function() {
+								$item.append( xxx_icon ).appendTo( $list ).fadeIn(function() {
 								  $item
 									.animate({ width: "48px" })
 									.find( "img" )
@@ -625,7 +626,7 @@ style="margin-bottom:200px;font-family:roboto;">
 							}
 							
 							// Image deletion function drivers
-							var recycle_icon = "<a href='link/to/recycle/script/when/we/have/js/off' title='Recycle this image' class='ui-icon ui-icon-refresh'>recycle</a>";
+							var xxx_icon = "<a href=''  ></a>";   
 							function deleteImageDrivers( $item ) {
 							  $item.fadeOut(function() {
 								var $list = $( "ul", $drivers ).length ?
@@ -633,7 +634,7 @@ style="margin-bottom:200px;font-family:roboto;">
 								  $( "<ul class='gallery ui-helper-reset'/>" ).appendTo( $drivers );
 						 
 								$item.find( "a.ui-icon-trash" ).remove();
-								$item.append( recycle_icon ).appendTo( $list ).fadeIn(function() {
+								$item.append( xxx_icon ).appendTo( $list ).fadeIn(function() {
 								  $item
 									.animate({ width: "48px" })
 									.find( "img" )
@@ -664,7 +665,7 @@ style="margin-bottom:200px;font-family:roboto;">
 							}
 						 
 							// Image preview function, demonstrating the ui.dialog used as a modal window
-							function viewLargerImage( $link ) {
+							/*function viewLargerImage( $link ) {
 							  var src = $link.attr( "href" ),
 								title = $link.siblings( "img" ).attr( "alt" ),
 								$modal = $( "img[src$='" + src + "']" );
@@ -682,10 +683,10 @@ style="margin-bottom:200px;font-family:roboto;">
 								  });
 								}, 1 );
 							  }
-							}
+							}*/
 						 
 							// Resolve the icons behavior with event delegation
-							$( "ul.gallery > li" ).on( "click", function( event ) {
+							/*$( "ul.gallery > li" ).on( "click", function( event ) {
 							  var $item = $( this ),
 								$target = $( event.target );
 						 
@@ -698,8 +699,8 @@ style="margin-bottom:200px;font-family:roboto;">
 							  }
 						 
 							  return false;
-							});
-						  } );
+							});*/
+			} );
 						  </script>
 						 
 						 
