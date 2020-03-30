@@ -12,7 +12,7 @@
 
 <!--<script src="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>-->
 
- 
+<!--needed on this screen only for drag and drop-->
 <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
 <!--jquery ui-->
@@ -25,7 +25,7 @@
 <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.3/css/jquery.dataTables.css" />-->
 
 <!--<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>-->
-
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 <!--fedex web components-->   
 <script src="faar-search.js"></script>
 <script src="fx-dropdownmenu.js"></script>
@@ -39,19 +39,23 @@
 <script src="radar-arrivals.js"></script>
 <script src="radar-jobs.js"></script>
 
+<!--we are using CSS Grid here which is built into the browser by default-->
 <style>
 
-body {
+body {background-color:rgb(70 70 70);
 }
 
 .wrapper {
+  //display:grid; 
   //grid-gap: 10px;
   position:relative;
   background-color: #fff;
+
   color: #444;
   width:768px;
   margin:auto;  //horizontal center the grid on screen
   //border:1px solid silver; 
+   
 }
 	
 .box {
@@ -59,6 +63,7 @@ body {
   padding: 0px;
   font-size: 150%;
   font-family: roboto;
+  
   //border:1px solid silver;
 }
 
@@ -177,6 +182,7 @@ width:50%;
 			grid-row:1;
 			grid-gap:0px;
     } 
+
 	
 	.flightsshown	{
 			position:absolute;
@@ -193,7 +199,9 @@ width:50%;
 			left:-40px;
 			width:110%;
 			grid-column:1/span 2;
-			grid-row:3 /span 5;  
+			grid-row:3 /span 5;
+						
+/*background-color: rgba(0,0,0,0.4);*/  		
 	}
 	
 	.jobs	{
@@ -212,11 +220,12 @@ width:50%;
 
 <div class = "wrapper">
  
-<div class="box header"><fx-markup class = "header" style="font-weight:bold;" width = 100% height = 80 c = #4D148C textcolor = "white" size = 32 family = "roboto"><div slot = "element-name" style = "text-align:center;padding-top:30px;font-family:roboto;">RADAR Outbound - PDX </div>
+<div class="box header"><fx-markup class = "header" style="font-weight:bold;" width = 100% height = 80 c = #4D148C textcolor = "white" size = 32  family = "roboto"><div slot = "element-name" style = "text-align:center;padding-top:30px;font-family:roboto;">RADAR Outbound - PDX </div>
 </fx-markup>
 </div>
   
-<div class="box menu" style = "border-bottom: solid 3px silver;"><fx-dropdownmenu 
+<div class="box menu" style = "border-bottom: solid 3px silver;">
+<fx-dropdownmenu 
 width = 768 
 height = 50 
 orientation = left 
@@ -232,9 +241,13 @@ style="margin-bottom:200px;font-family:roboto;">
 <a slot = "drop-text3" style = "color:#4D148C;font-weight:bold;margin-left:60px;" href = "sort.html">SORT</a>
 <a slot = "drop-text5" style = "color:#4D148C;font-weight:bold;margin-left:70px;color:silver" href = "live.html">LIVE VIEWS</a>
 <a slot = "drop-text6" style = "color:#4D148C;font-weight:bold;margin-left:90px;color:silver;" href = "notes.html">MY NOTES</a>
-</fx-dropdownmenu></div>
+</fx-dropdownmenu>
+</div>
 
-<div class="box content1" style = "position:relative;p	adding-left:30px;"><fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:left;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Volume To Process</span><br />16,423</div>
+<div class="box content1" style = "position:relative;padding-left:30px;">
+<fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto">
+<div slot = "element-name" style = "text-align:left;font-family:roboto;">
+<span style = "font-size:22px;color:black;font-weight:bold;">Volume To Process</span><br />16,423</div>
 </fx-markup> 
 <fx-markup  style = "position:absolute;top:0px;left:100%;font-weight:bold;padding-left:120px; " textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:center;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Sort Time Left</span><br />2:55:00<br /><span style = "display:block;font-size:18px;font-style:italic;">(h:mm:ss)</span></div>
 </fx-markup></div>
@@ -315,7 +328,7 @@ style="margin-bottom:200px;font-family:roboto;">
 </fx-markup>
 </div>
  
-<div  class="box flights"><span style="font-size:18px;color:#4D1486;font-weight:bold;">Outbound Flights</span><img src = "pencil.png"  style = "padding-left:10px;" onclick="ddd = document.getElementById('myflights');ddd.style.display = 'block';" id = "myBtn" />			
+<div  class="box flights" style = "padding-left:10px;"><span style="font-size:18px;color:#4D1486;font-weight:bold;">Outbound Flights</span><img src = "pencil.png"  style = "padding-left:10px;" onclick="ddd = document.getElementById('myflights');ddd.style.display = 'block';" id = "myBtn" />			
 
 <table   id="details"  cellspacing="0" width="100%" class="footable table toggle-circle">
 				<thead>
@@ -370,8 +383,8 @@ style="margin-bottom:200px;font-family:roboto;">
 
 
 
-<div class="box flight">
-<div class = "box flight1">
+<div class="box flight" style = "padding-bottom:10px;">
+<div class = "box flight1" style = "padding-left:10px;">
 <span style = "font-size:18px;font-weight:bold;">Flight</span>
 <select id = "cars" is = "fx-select" style = "font-size:22px;height:40px;border:solid 1px Gainsboro;width:90px;background-color: #f7f7f7;" >
 <option value = "747">747</option>
@@ -432,14 +445,14 @@ style="margin-bottom:200px;font-family:roboto;">
 </select>
 </div>
 
-<div class = "box flight9" style = "margin-top:21px;">
-<fx-button    c = #4D148C rad = 10 width = 75 height = 70 textcolor = "white" size = 18 family = roboto cur = "pointer"><div style = "margin-top:10px;" slot = "buttonpos">Request Cans</div></fx-button>	 
+<div class = "box flight9" style = "margin-top:30px;">
+<fx-button    c = #4D148C rad = 10 width = 75 height = 60 textcolor =  white  size = 18 family = roboto cur = "pointer"><div style = "margin-top:10px;color:white;text-align:left;padding:5px;" slot = "buttonpos">Request Cans</div></fx-button>	 
 </select>
 </div>
 
 </div><!--wrapper-->
 
- 
+<!--custom dialog boxses-->
 <div class="box flightsshown" style = "z-index:1000;" > 
 <div id = "myflights" style = "display:none;">
 <radar-flights></radar-flights>
@@ -448,13 +461,13 @@ style="margin-bottom:200px;font-family:roboto;">
 
 <div class="box lastarrivals" style = "z-index:1000;" > 
 <div id = "myarrivals" style = "display:none;">
-<radar-arrivals></radar-arrivals>
+<radar-arrivals ></radar-arrivals>
 </div>
 </div>
 
 <div class="box jobs" style = "z-index:1000;" > 
 <div id = "myjobs" style = "display:none;">
-<radar-jobs></radar-jobs>
+<radar-jobs width = 234  c = red></radar-jobs>
 </div>
 </div>
 
@@ -462,10 +475,10 @@ style="margin-bottom:200px;font-family:roboto;">
 
 <!--JOB ASSIGNMENTS MODAL-->
 						 
-<div id = "jobassignments" style ="width:100%;background-color:white;color:black; position:absolute;top:100px;overflow-y:scroll;overflow-x:none;display:none;">
+<div id = "jobassignments" style ="width:90%;background-color:white;color:black; position:absolute;top:140px;left:36px;display:none;border:thin solid black;">
 	<div style='padding-top:15px;background-color:#4D148C;width:100%;height:60px;color:white;font-family:roboto;font-size:38px;font-weight:bold;text-align:center;'>Job Assignments</div>
 		<style>
-			#gallery { float: left; width: 50%; min-height: 12em; }
+			#gallery { float: left; width: 100%;overflow-y: scroll;height:300px; }
 			.gallery.custom-state-active { background: #eee; }
 						  .gallery li { float: left; width: 96px; padding: 0.4em; margin: 0 0.4em 0.4em 0; text-align: center; }
 						  .gallery li h5 { margin: 0 0 0.4em; cursor: move; }
@@ -473,22 +486,22 @@ style="margin-bottom:200px;font-family:roboto;">
 						  .gallery li a.ui-icon-zoomin { float: left; }
 						  .gallery li img { width: 100%; cursor: move; }
 						 
-						  #load { float: right;   min-height: 12em; padding: 1%; }
+						  #load { float: right;   height:100px; padding: 1%;overflow-y: scroll; }
 						  #load h4 { line-height: 16px; margin: 0 0 0.4em; }
 						  #load h4 .ui-icon { float: left; }
 						  #load .gallery h5 { display: none; }
 						  
-						  #gate { float: right;   min-height: 12em; padding: 1%; }
+						  #gate { float: right;   height:100px; padding: 1%;overflow-y: scroll; }
 						  #gate h4 { line-height: 16px; margin: 0 0 0.4em; }
 						  #gate h4 .ui-icon { float: left; }
 						  #gate .gallery h5 { display: none; }
 						  
-						  #slide { float: right;   min-height: 12em; padding: 1%; }
+						  #slide { float: right;   height:100px; padding: 1%;overflow-y: scroll; }
 						  #slide h4 { line-height: 16px; margin: 0 0 0.4em; }
 						  #slide h4 .ui-icon { float: left; }
 						  #slide .gallery h5 { display: none; }
 						  
-						  #drivers { float: right;   min-height: 12em; padding: 1%; }
+						  #drivers { float: right;   height:100px; padding: 1%;overflow-y: scroll;}
 						  #drivers h4 { line-height: 16px; margin: 0 0 0.4em; }
 						  #drivers h4 .ui-icon { float: left; }
 						  #drivers .gallery h5 { display: none; }
@@ -504,11 +517,8 @@ style="margin-bottom:200px;font-family:roboto;">
 							  $slide = $( "#slide" );
 							  $drivers = $( "#drivers" );
 							  
-							  
-						 
-						 
 							// Let the gallery items be draggable
-							$( "h3", $gallery ).draggable({
+							$( "h5", $gallery ).draggable({
 							  cancel: "a.ui-icon", // clicking an icon won't initiate dragging
 							  revert: "invalid", // when not dropped, the item will revert back to its initial position
 							  containment: "document",
@@ -518,7 +528,7 @@ style="margin-bottom:200px;font-family:roboto;">
 							
 							// Let load be droppable, accepting the gallery items
 							$load.droppable({
-							accept: "#gallery > h3",
+							accept: "#gallery > h5",
 							drop: function( event, ui ) {
 							deleteImageLoad( ui.draggable );
 							  }
@@ -526,7 +536,7 @@ style="margin-bottom:200px;font-family:roboto;">
 						 
 							// Let gate be droppable, accepting the gallery items
 							$gate.droppable({
-							accept: "#gallery > h3",
+							accept: "#gallery > h5",
 							drop: function( event, ui ) {
 							deleteImage( ui.draggable );
 							  }
@@ -534,7 +544,7 @@ style="margin-bottom:200px;font-family:roboto;">
 							
 							// Let slide be droppable, accepting the gallery items
 							$slide.droppable({
-							accept: "#gallery > h3",
+							accept: "#gallery > h5",
 							drop: function( event, ui ) {
 							deleteImageSlide( ui.draggable );
 							  }
@@ -542,7 +552,7 @@ style="margin-bottom:200px;font-family:roboto;">
 							
 							// Let drivers be droppable, accepting the gallery items
 							$drivers.droppable({
-							accept: "#gallery > h3",
+							accept: "#gallery > h5",
 							drop: function( event, ui ) {
 							deleteImageDrivers( ui.draggable );
 							  }
@@ -557,7 +567,7 @@ style="margin-bottom:200px;font-family:roboto;">
 							});
 							
 							
-						 
+						 //DELETE
 							
 							// Image deletion function load
 							 var recycle_icon = "<a href='link/to/recycle/script/when/we/have/js/off' title='Recycle this image' class='ui-icon ui-icon-refresh'>Recycle<br />image</a>";
@@ -579,6 +589,7 @@ style="margin-bottom:200px;font-family:roboto;">
 							
 							// Image deletion function gate
 							var recycle_icon = "<a href='link/to/recycle/script/when/we/have/js/off' title='Recycle this image' class='ui-icon ui-icon-refresh'>recycle</a>";
+							
 							function deleteImage( $item ) {
 							  $item.fadeOut(function() {
 								var $list = $( "ul", $gate ).length ?
@@ -632,7 +643,7 @@ style="margin-bottom:200px;font-family:roboto;">
 							}
 							
 						 
-							
+						//Recycle	
 						 
 							// Image recycle function
 							var trash_icon = "<a href='link/to/trash/script/when/we/have/js/off' title='Delete this image' class='ui-icon ui-icon-trash'>Delete</a>";
@@ -692,73 +703,54 @@ style="margin-bottom:200px;font-family:roboto;">
 						  </script>
 						 
 						 
-	<div class="ui-widget ui-helper-clearfix" style = "font-family:roboto;font-size:22px;min-height:1000px;">
+	<div class="ui-widget ui-helper-clearfix" style = "font-family:roboto;font-size:22px;min-height:750px;">
 						 
-					<div id="gallery" class="gallery ui-helper-reset ui-helper-clearfix" style = "position:absolute;width:100%;top:610px;"> 
+					<div id="gallery" class="gallery ui-helper-reset ui-helper-clearfix" style = "position:absolute;top:505px;border-top:thin solid silver;"> 
 						
 						
-						<span  style = "margin-bottom:30px;padding-left:300px;  font-size:32px;width:400px;font-weight:bold;text-shadow:none;">Unassigned</span>
+						<span  style = "margin-bottom:30px;padding-left:300px;  font-size:28px;width:400px;font-weight:bold;text-shadow:none;">Unassigned</span>
 						
-						<h3 class="ui-widget-content ui-corner-tr  droppableShape ">Anthony</h3>
+						<h5 class="ui-widget-content ui-corner-tr  droppableShape " style = "padding-left:20px;">Anthony</h5>
 							
-						<h3 class="ui-widget-content ui-corner-tr  droppableShape ">Paula</h3>
+						<h5 class="ui-widget-content ui-corner-tr  droppableShape " style = "padding-left:20px;">Paula</h5>
 						
-						<h3  class="ui-widget-content ui-corner-tr  droppableShape ">Joe</h3>
+						<h5  class="ui-widget-content ui-corner-tr  droppableShape " style = "padding-left:20px;">Joe</h5>
 							
 						 
-						<h3  class="ui-widget-content ui-corner-tr  droppableShape ">Tom</h3>
+						<h5  class="ui-widget-content ui-corner-tr  droppableShape " style = "padding-left:20px;">Tom</h5>
 						
-						<h3 class="ui-widget-content ui-corner-tr  droppableShape ">Mary</h3>
+						<h5 class="ui-widget-content ui-corner-tr  droppableShape " style = "padding-left:20px;">Mary</h5>
 							
-						<h3 class="ui-widget-content ui-corner-tr  droppableShape ">Janet</h3>
+						<h5 class="ui-widget-content ui-corner-tr  droppableShape " style = "padding-left:20px;">Janet</h5>
 						
-						<h3  class="ui-widget-content ui-corner-tr  droppableShape ">Tracy</h3>
+						<h5  class="ui-widget-content ui-corner-tr  droppableShape " style = "padding-left:20px;">Tracy</h5>
 						
 						 
 					</div>
 						
-						 
-						
-						
-						
-						
-						 
-							  
-						  
-						  
-						   
-						  
-						  <!--<li class="ui-widget-content ui-corner-tr droppableShape">
-							<h5>Tom</h5>
-							<img src="personD.png" alt="Tom" width="96" height="72">
-							<a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a>
-						  </li>-->
-						  
-						  
-						</ul>
-
-
-						<div   id = "load"  style = "position:absolute;top:75px;left:0px;width:50%;height:200px;text-shadow:none;border-right:solid thin silver;"> 
+						 <div   id = "load"  style = "position:absolute;top:75px;left:0px;width:50%;height:200px;text-shadow:none;border-right:solid thin silver;"> 
 						 <h4  >Load</h4>
 						</div>
 						 
-						<div    id = "gate"  style = "position:absolute;top:75px;right:-30px;width:50%;height:200px;text-shadow:none;"> 
+						<div    id = "gate"  style = "position:absolute;top:75px;right:0px;width:45%;height:200px;text-shadow:none;"> 
 						 <h4>Gate</h4>
 						</div>
 
-						<div   id = "slide"  style = "position:absolute;top:325px;left:0px;width:50%;height:200px;text-shadow:none;border-top:solid thin silver;border-right:solid thin silver;"> 
+						<div   id = "slide"  style = "position:absolute;top:290px;left:0px;width:50%;height:200px;text-shadow:none;border-top:solid thin silver;border-right:solid thin silver;"> 
 						 <h4  >Slide</h4>
 						</div>
 
-						<div   id = "drivers"  style = "border-top:solid thin silver;position:absolute;right:-30px;top:325px;width:50%;height:200px;text-shadow:none;"> 
+						<div   id = "drivers"  style = "border-top:solid thin silver;position:absolute;right:0px;top:290px;width:45%;height:200px;text-shadow:none;"> 
 						 <h4   >Drivers</h4>
 						</div>
 
 		<input type="button" value="Save" style="position:absolute;right:50px;bottom:20px; height:35px;width:80px;">
 		
 		<input type="button" id= 'myClose'   onclick = "document.getElementById('jobassignments').style.display = 'none';" value="Cancel" style="position:absolute;bottom:20px; height:35px; right:150px;width:80px;"><br /><br /><br />
-						 
-						 
+    </div>						 
+
+		 
+</div>						 
 </html>
 
 <!--Note: this screen does not use the grid.  Grid interfers with elements on the screen
