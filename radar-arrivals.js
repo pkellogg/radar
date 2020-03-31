@@ -13,7 +13,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   padding-right: 20px;
   border: 1px solid #888;
   border-radius: 5px;
-  width: 85%;
+  width: 80%;
   height:100%;
   font-family:roboto;
 }
@@ -36,7 +36,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </style>
 
 <div id='myModal' class = 'modalx' ">
-	<div class = 'modal-content' style = 'padding-left:20px;padding-right:20px;'>
+	<div class = 'modal-content' style = 'padding-left:20px;padding-right:20px;box-shadow:10px 10px 10px silver ;border-left:4px solid silver;'>
 		<p id="demo" >This is demo</p>
 		<input type="button" value="Save" style="float:right;height:35px;width:80px;">
 

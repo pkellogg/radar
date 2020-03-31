@@ -29,6 +29,8 @@ myObj = JSON.parse(this.responseText);
 obj = { table: "customers", limit: 20 };*/
 
 //this is the json array
+
+
 	 
 myObj = [
  
@@ -41,15 +43,19 @@ myObj = [
  ];
 
 var txt = "";
-txt +=  "<div style='padding-top:15px;background-color:#4D148C;width:768px;height:60px;color:white;font-family:roboto;font-size:38px;font-weight:bold;text-align:center;'>Daily Scale Inspection</div><UL class='fxlistclass' style='list-style: none;position:relative;padding:0px;font-family:roboto;width:768px; '><li style='text-decoration: none;border:none;cursor:pointer;'>"
+txt +=  "<div style = 'background-color:white; box-shadow:10px 10px 10px silver ;border-left:4px solid silver;width:95%;margin-left:16px;padding-bottom:20px;'><div style='padding-top:15px;background-color:#4D148C;height:60px;color:white;font-family:roboto;font-size:38px;font-weight:bold;text-align:center;'>Daily Scale Inspection</div><UL class='fxlistclass' style='list-style: none; padding:0px;font-family:roboto; '><li style='text-decoration: none;border:none;cursor:pointer;'>"
 	
 	 for (x in myObj) {
        txt += "<li class = 'highlightrows' style='text-decoration: none;list-style: none;border:none;position:relative;margin-bottom:30px;margin-top:20px;margin-left:30px;'>" + "<span style = 'font-weight:bold;font-size:28px;'>" + myObj[x].scaleid + "<button style = 'margin-left:20px;width:120px;height:30px;background-color: #4D148C;color:white;border-radius:7px;font-size:16px;'>Add Remarks</button>" + "</span>" +"<br />" +
 	   
-	   "<label for = 'sticker'>Sticker</label><input type = 'checkbox' name = 'sticker' style= 'height:20px;width:20px;font-size:22px;'><span style= 'margin-left:10px;font-size:22px;'>ULD No. (or) Asset No. / Type</span><span style = 'margin-left:30px;font-size:22px;'>Known lbs</span><label for = 'limits' style = 'margin-left:10px;'>Within Limits?</label><input type = 'checkbox' name = 'limits' style= 'height:20px;width:20px;'>" + "</li>" ;
+	   "<label for = 'sticker'>Sticker</label><input type = 'checkbox' name = 'sticker' style= 'height:20px;width:20px;font-size:22px;'><span style= 'margin-left:10px;font-size:20px;'>ULD No. (or) Asset No. / Type</span><span style = 'margin-left:10px;font-size:20px;'>Known lbs</span><label for = 'limits' style = 'margin-left:10px;'>Within Limits?</label><input type = 'checkbox' name = 'limits' style= 'height:20px;width:20px;'>" + "</li>" ;
     }
    
-    txt += "</UL>" 
+    txt += "</UL><input type='button' value='Save' style='float:right;margin-right:20px;height:35px;width:80px;'>" +
+	
+	`<input type='button' id= 'myClose' onclick="nnn = document.getElementById('myinspection');nnn.style.display = 'none';" value='Cancel' style='float:right;height:35px;margin-right:10px;width:80px;'><br /><br /></div>` 
+
+	/*Note:  In the above, I am putting the cancel button which closes the dialog in tic marks at the very end of this script so that I can use an onclick event which requires both single and double quotes.  This is the way I get around this common issue.  Please note that I must use double quotes for the rest of this script as I build this out dynamically.  But at the very end when I break out of the loop, I can use the tik mark and thus both single and double quotes for the onclick event handler.*/
  
 class radarscales extends HTMLElement {
 	
@@ -116,7 +122,7 @@ class radarscales extends HTMLElement {
 				childNodes[i].textContent = '.fxlistclass {' +
 				    ' left: '             + elem.getAttribute('xpos') + 'px;' +
 					' top: '              + elem.getAttribute('ypos') + 'px;' +
-					' width: '            + elem.getAttribute('width') + 'px;' +     
+					' width: '            + elem.getAttribute('width') + '%;' +     
                     ' background-color: ' + elem.getAttribute('c') + ';' +  
 					' z-index: '          + elem.getAttribute('layer') + ';' +  
 					' opacity: '          + elem.getAttribute('trans') + ';' +				  

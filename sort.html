@@ -475,7 +475,7 @@ style="margin-bottom:200px;font-family:roboto;">
 
 <!--JOB ASSIGNMENTS MODAL-->
 						 
-<div id = "jobassignments" style ="width:90%;background-color:white;color:black; position:absolute;top:140px;left:36px;display:none;border:thin solid black;">
+<div id = "jobassignments" style ="width:90%;background-color:white;color:black; position:absolute;top:140px;left:36px;display:none;box-shadow:10px 10px 10px silver ;border-left:4px solid silver;">
 	<div style='padding-top:15px;background-color:#4D148C;width:100%;height:60px;color:white;font-family:roboto;font-size:38px;font-weight:bold;text-align:center;'>Job Assignments</div>
 		<style>
 			#gallery { float: left; width: 100%;overflow-y: scroll;height:300px; }
@@ -569,7 +569,8 @@ $( function() {
 							
 						 //DELETE
 							
-							// Image deletion function load
+	//Note: modify var recycle_icon =  with						
+	// Image deletion function load
 							 var xxx_icon = "<a href=''  ></a>";   
 							function deleteImageLoad( $item ) {
 							  $item.fadeOut(function() {

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>RADAR</title>
 
- 
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
 
 <!--fedex web components-->   
 <script src="faar-search.js"></script>
@@ -33,8 +33,8 @@
 
 <style>
 
-body {
-}
+ 
+body {background-color:rgb(70 70 70);}
 
 .wrapper {
   display:   grid ;
@@ -131,7 +131,7 @@ body {
 	
 .flightsshown	{
 grid-column:1/span 2;
-        grid-row:12 /span - 8; <!--negative 8 makes the anchor links in grid work-->
+grid-row:12 /span - 8; <!--negative 8 makes the anchor links in grid work-->
 }
 </style>
 
@@ -181,7 +181,7 @@ style="margin-bottom:200px;font-family:roboto;">
 </div>
 
 <div class="box inspect">
-<fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 18 family = "roboto"><div  slot = "element-name" style = "text-align:center;font-family:roboto;margin-top:60px;" ><a href = "inspection.html"> SCALE INSPECTION</a><img src = "scale.png" /></div>
+<fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 18 family = "roboto"><div  slot = "element-name" style = "text-align:center;font-family:roboto;margin-top:50px;" ><span style ="text-decoration:underline;cursor:pointer;" onclick="nnn = document.getElementById('myinspection');nnn.style.display = 'block';">SCALE INSPECTION</span><img src = "scale.png" /></div>
 </fx-markup>
  
 </div>
@@ -217,12 +217,12 @@ style="margin-bottom:200px;font-family:roboto;">
 </fx-markup>
 </div>
 
-<div class = "box  outboundflights ">
+<div class = "box  outboundflights" style = "padding-left:40px;padding-right:10px;padding-bottom:50px;">
 <span style="font-size:18px;color:#4D1486;font-weight:bold;">Outbound Flights</span>
 
 <img src = "pencil.png" onclick="ddd = document.getElementById('myflights');ddd.style.display = 'block';" id = "myBtn" style = "padding-left:10px;"  />	
 	
-<table    id="details"  cellspacing="0" width="100%" class="footable table toggle-circle">
+<table    id="details"  cellspacing="0" width="95%" class="footable table toggle-circle">
 				
 				 
 				<tr >
@@ -274,9 +274,15 @@ style="margin-bottom:200px;font-family:roboto;">
 </div>
 <!--this is the overlapping box.  Its not an html page but rather the .js.  Its got be 
 at the end here with a negaative setting in the grid definiation.  Go figure!-->
-<div class="box flightsshown" style = "z-index:1000;" > 
+<div class="box flightsshown" style = "z-index:1000;margin-top:70px;" > 
 <div id = "myflights" style = "display:none;">
 <radar-flights ></radar-flights>
+</div>
+</div>
+
+<div class="box flightsshown" style = "z-index:1000;margin-top:50px;" > 
+<div id = "myinspection" style = "display:none;">
+<radar-scales  c = "white" ypos = 20 width = 95 xpos= 18 ></radar-scales>
 </div>
 </div>
 </div><!--wrapper-->

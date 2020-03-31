@@ -328,13 +328,13 @@ window.onclick = function(event) {
 	static get observedAttributes() {return ['xpos', 'ypos', 'width', 'c', 'layer', 'trans', 'size', 'textcolor', 'family']; }	
 	
 	attributeChangedCallback(name, oldValue, newValue) {
-		if(name == "c2" && newValue == "orange"){
+		/*if(name == "c2" && newValue == "orange"){
 			document.querySelector('#feedback').innerHTML = "Welcome Fed<span style='color:orange;'>Ex!";
 		} 
 		
 		if(name == "c2" && newValue !== "orange"){
 			document.querySelector('#feedback').innerHTML = "You are not FedEx!";
-		} 
+		}*/ 
 		 updateStyleTable(this);
 	}	
 } //class definition

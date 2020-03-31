@@ -32,7 +32,7 @@ obj = { table: "customers", limit: 20 };*/
 	 
 myObj = [
  
-{icon1: "<image src = 'description-42px.svg' 'height = 42px width =  42px />", icon2: " <image src = 'subdirectory_arrow_right-42px.svg' height = 42px width =  42px/> ", content: "Noticed something of note that is easiest to express in text form so I am typing it instead of taking a picture or..." , time : "18:50"},
+{icon1: "<image src = 'description-42px.svg' 'height = 42px width =  42px />", icon2: " <image src = 'subdirectory_arrow_right-42px.svg' height = 42px width =  42px/> ", content: "Noticed something of note that is easiest to express in text form so I am typing it instead of taking a picture or..." , time : "18:50" },
 
 {icon1: "<image src = 'volume_down-42px.svg' height = 42px width =  42px />" , icon2: " <image src = 'subdirectory_arrow_right-42px.svg' height = 42px width =  42px/> ", content: "<image src = 'play_circle_outline-42px.svg' height = 82px width =  82px style = 'padding-top:20px;' /><span style = 'padding-left:40px;'>30 Second Audio Recording</span><input style = 'width:500px;margin-left:120px;'  type='range' id='vol' name='vol' min='0' max='50'></input>" , time : "18:55"},
 

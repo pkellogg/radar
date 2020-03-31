@@ -4,7 +4,7 @@
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>RADAR</title>
-
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
  
 
 <!--fedex web components-->   
@@ -34,7 +34,7 @@
 <script src="faar-listbox.js"></script>
 <script src="fx-accordion-item.js"></script>
  
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <style>
 
 body {
@@ -119,15 +119,26 @@ style="margin-bottom:200px;font-family:roboto;">
 <a slot = "drop-text6" style = "color:#4D148C;font-weight:bold;margin-left:90px;color:silver;" href = "notes.html">MY NOTES</a>
 </fx-dropdownmenu>
 
+<div class = "box flight1" style = "padding-right:10px;float:right;">
+<span style = "font-size:18px;font-weight:bold;">Create New Note</span>
+<select id = "cars" is = "fx-select" style = "font-size:22px;height:40px;border:solid 1px Gainsboro;width:90px;background-color: #f7f7f7;" >
+<option value = "text">Text</option>
+<option value = "voice">Voice</option>
+<option value = "image">Image</option>
+<option value = "video">Video</option>
+<option value = "video">Time</option>
+</select>
+</div>
+
 </div>
 
 <div class="wraper" > 
 <div class = "box content1">
 <radar-listbox></radar-listbox> 
 
-<fx-button id= "showmenu" style = "float:right;padding-right:120px;"  c = #4D148C  width = 100 height = 100 trans = 1  rad =  "50" onclick = "document.getElementById('myflights').style.display = 'block';document.getElementById('showmenu').style.display = 'none';cursor:pointer;">
+<!--<fx-button id= "showmenu" style = "float:right;padding-right:120px;"  c = #4D148C  width = 100 height = 100 trans = 1  rad =  "50" onclick = "document.getElementById('myflights').style.display = 'block';document.getElementById('showmenu').style.display = 'none';cursor:pointer;">
 <span slot = 'button-image'><img src = 'plus-2-48.png' style="padding-top:24px;" /></span>
-</fx-button>
+</fx-button>-->
 
 <!--Ref for icons: https://www.iconsdb.com/white-icons/plus-2-icon.html-->
 

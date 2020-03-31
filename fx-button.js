@@ -48,11 +48,12 @@ template.innerHTML = `
 <div class="button fxbuttonclass" style="-webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;text-align: center;border: none;box-shadow: 5px 5px 10px rgb(170 170 170);padding:0px;margin:0px;">
 <slot name="button-image"></slot>
+<slot name="buttonpos"></slot>
  
 </div>`;
 
 	class FxButton extends HTMLElement {
-	static get observedAttributes() {return ['width', 'height', 'c', 'layer', 'trans','rad']; }	
+	static get observedAttributes() {return ['width', 'height', 'c', 'layer', 'trans', 'textcolor', 'size', 'rad']; }	
 	constructor() {
     super();
     let shadowRoot = this.attachShadow({mode: 'open'});
@@ -80,6 +81,8 @@ function updateStyleDrop(elem) {
                           ' background-color: ' + elem.getAttribute('c') + ';' +  
 						  ' z-index: ' + elem.getAttribute('layer') + ';' +  
 						  ' opacity: ' + elem.getAttribute('trans') + ';' +
+						  ' color: ' + elem.getAttribute('textcolor') + ';' +
+						  ' font-size: ' + elem.getAttribute('size') + 'px;' +
 						  ' border-radius: ' + elem.getAttribute('rad') + '%;' +
 						   '}'  
 						  

@@ -13,7 +13,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   padding-right: 20px;
   border: 1px solid #888;
   border-radius: 5px;
-  width: 85%;
+  width: 80%;
   height:100%;
   font-family:roboto;
 }
@@ -36,7 +36,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </style>
 
 <div id='myModal' class = 'modalx' ">
-	<div class = 'modal-content'>
+	<div class = 'modal-content' style = 'box-shadow:10px 10px 10px silver ;border-left:4px solid silver;' >
 		<p id="demo">This is demo</p>
 		<input type="button" value="Save" style="float:right;height:35px;width:80px;">
 
@@ -84,17 +84,9 @@ myObj = [
  
  {show: "<input   type='checkbox' style = 'width:30px;height:30px;' id='vehicle1' name='vehicle1' value='Bike'>",flight:"721", market: "SJU", tail: "858",gate: "383",depart: "20:05"  },
  
- {show: "<input   type='checkbox' style = 'width:30px;height:30px;' id='vehicle1' name='vehicle1' value='Bike'>",flight:"721", market: "SJU", tail: "858",gate: "383",depart: "20:05"  },
+  
  
- {show: "<input   type='checkbox' style = 'width:30px;height:30px;' id='vehicle1' name='vehicle1' value='Bike'>",flight:"721", market: "SJU", tail: "858",gate: "383",depart: "20:05"  },
- 
- {show: "<input   type='checkbox' style = 'width:30px;height:30px;' id='vehicle1' name='vehicle1' value='Bike'>",flight:"721", market: "SJU", tail: "858",gate: "383",depart: "20:05"  },
- 
- {show: "<input   type='checkbox' style = 'width:30px;height:30px;' id='vehicle1' name='vehicle1' value='Bike'>",flight:"721", market: "SJU", tail: "858",gate: "383",depart: "20:05"  },
- 
- {show: "<input   type='checkbox' style = 'width:30px;height:30px;' id='vehicle1' name='vehicle1' value='Bike'>",flight:"721", market: "SJU", tail: "858",gate: "383",depart: "20:05"  },
- 
- {show: "<input   type='checkbox' style = 'width:30px;height:30px;' id='vehicle1' name='vehicle1' value='Bike'>",flight:"721", market: "SJU", tail: "858",gate: "383",depart: "20:05"  }
+{show: "<input   type='checkbox' style = 'width:30px;height:30px;' id='vehicle1' name='vehicle1' value='Bike'>",flight:"721", market: "SJU", tail: "858",gate: "383",depart: "20:05"  }
   
  ];
 
