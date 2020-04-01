@@ -15,6 +15,7 @@
 <script src="radar-scales.js"></script>
 <script src="radar-flights.js"></script>
 <script src="radar-jobs.js"></script>
+<script src="date-widget.comp.js"></script>
 
 <!--from faar-stationaddworkgroup.html-->
 <script src="faar-headersearch.js"></script>
@@ -32,8 +33,7 @@
 
 <style>
 
-body {
-}
+body {background-color:rgb(70 70 70);}
 
 .wrapper {
   display:   grid;
@@ -93,9 +93,10 @@ body {
 
 <div class = "wrapper" style = "margin-bottom:150px;">
 
-<div class="box header">
-<fx-markup class = "header" style="font-weight:bold;" width = 768 height = 120 c = #4D148C textcolor = "white" size = 32 family = "roboto"><div slot = "element-name" style = "text-align:center;padding-top:30px;font-family:roboto;">RADAR Outbound - PDX </div>
-</fx-markup>
+<div class="box header" style = "position:relative;">
+<date-widget style = "position:absolute;top:20px;right:10px;"></date-widget>
+<fx-markup class = "header" style="font-weight:bold;" width = 768 height = 80 c = #4D148C textcolor = "white" size = 32 family = "roboto"><div slot = "element-name" style = "text-align:center;padding-top:30px;font-family:roboto;">RADAR Outbound - PDX </div>
+</fx-markup >
 </div>
 
 <div class="box menu" style = "border-bottom: solid 3px silver;">

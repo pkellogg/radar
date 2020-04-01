@@ -55,7 +55,7 @@ txt +=  "<div style = 'background-color:white; box-shadow:10px 10px 10px silver 
 	
 	`<input type='button' id= 'myClose' onclick="nnn = document.getElementById('myinspection');nnn.style.display = 'none';" value='Cancel' style='float:right;height:35px;margin-right:10px;width:80px;'><br /><br /></div>` 
 
-	/*Note:  In the above, I am putting the cancel button which closes the dialog in tic marks at the very end of this script so that I can use an onclick event which requires both single and double quotes.  This is the way I get around this common issue.  Please note that I must use double quotes for the rest of this script as I build this out dynamically.  But at the very end when I break out of the loop, I can use the tik mark and thus both single and double quotes for the onclick event handler.*/
+	/*Note:  In the above, I am putting the cancel button which closes the dialog in template literal tic marks at the very end of this script so that I can use an onclick event which requires both single and double quotes.  This is the way I get around this common issue.  Please note that I must use double quotes for the rest of this script as I build this out dynamically.  But at the very end when I break out of the loop, I can use the tik mark and thus both single and double quotes for the onclick event handler.*/
  
 class radarscales extends HTMLElement {
 	

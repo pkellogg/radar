@@ -15,6 +15,8 @@
 <script src="radar-scales.js"></script>
 <script src="radar-flights.js"></script>
 <script src="radar-jobs.js"></script>
+<script src="date-widget.comp.js"></script>
+
 
 
 
@@ -30,15 +32,14 @@
 <script src="faar-listbox.js"></script>
 <script src="fx-accordion-item.js"></script>
  
-
+<!--fr stands for fraction unit, a unit of measuremnt to define a fractionof the available container space.
+auto-fill creates columns with as many columns that can fit in the container.-->
 <style>
-
- 
 body {background-color:rgb(70 70 70);}
 
 .wrapper {
   display:   grid ;
-  grid-template-columns: fl fl;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
   grid-template-rows:  80px 60px 1px 0px 140px;
   //grid-gap: 10px;
   background-color: #fff;
@@ -133,7 +134,47 @@ body {background-color:rgb(70 70 70);}
 grid-column:1/span 2;
 grid-row:12 /span - 8; <!--negative 8 makes the anchor links in grid work-->
 }
+
+#clock {
+  font-family: Arial;
+  font-size: 18px;
+  text-align: center;
+  color:white;
+   
 </style>
+
+<script>
+function startTime() {
+  offset = 8;
+  var today = new Date();
+  var h = today.getUTCHours();
+  var m = today.getUTCMinutes();
+  var s = today.getUTCSeconds();
+  h = h + offset;
+  if (h > 24) {
+    h = h - 24;
+  }
+  if (h < 0) {
+    h = h + 24;
+  }
+  h = checkTime(h);
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('clock').innerHTML = h + ":" + m + ":" + s;
+  var t = setTimeout(function() {
+    startTime()
+  }, 500);
+}
+
+function checkTime(i) {
+  if (i < 10) {
+    i = "0" + i
+  };
+  return i;
+}
+
+startTime()
+</script>
 
 </head>
 
@@ -143,9 +184,11 @@ grid-row:12 /span - 8; <!--negative 8 makes the anchor links in grid work-->
 
 <div class = "wrapper" style = "margin-bottom:150px;">
 
-<div class="box header"><fx-markup class = "header" style="font-weight:bold;" width = 768 height = 120 c = #4D148C textcolor = "white" size = 32 family = "roboto"><div slot = "element-name" style = "text-align:center;padding-top:30px;font-family:roboto;">RADAR Outbound - PDX </div>
-</fx-markup>
+<div class="box header" style = "position:relative;"> 
+ <date-widget style = "position:absolute;top:0px;right:0px;"></date-widget> 
 
+<fx-markup class = "header" style="font-weight:bold;" width = 768 height = 80 c = #4D148C textcolor = "white" size = 32 family = "roboto"><div slot = "element-name" style = "text-align:center;padding-top:30px;font-family:roboto;">RADAR Outbound - PDX </div>
+</fx-markup >
 </div>
 
 <div class="box menu" style = "border-bottom: solid 3px silver;"><fx-dropdownmenu 

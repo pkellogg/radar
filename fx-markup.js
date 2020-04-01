@@ -4,6 +4,7 @@
 	template.innerHTML = `
     <div class="fxmarkupclass">
 	<slot name="element-name" ></slot>
+	
 	</div>`;
 
 	class FxMarkup extends HTMLElement {

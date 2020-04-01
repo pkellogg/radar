@@ -43,15 +43,14 @@ myObj = [
 {icon1: "<image src = 'description-42px.svg' 'height = 42px width =  42px />",  icon2: " <image src = 'subdirectory_arrow_right-42px.svg' height = 42px width =  42px/> ", content: "Noticed something of note that is easiest to express in text form so I am typing it instead of taking a picture or..." , time : "20:00"},
 
 {icon1: "<image src = 'description-42px.svg' 'height = 42px width =  42px />",  icon2: " <image src = 'subdirectory_arrow_right-42px.svg' height = 42px width =  42px/> ", content: "Noticed something of note that is easiest to express in text form so I am typing it instead of taking a picture or..." , time : "20:20"}
-
- 
 ]
 
- var txt = "";
-txt += "<div class = 'wrap' style = 'display:grid;grid-template-columns: fl fl fl;margin:auto;padding-top:20px;padding-bottom:20px;'>" 
+//margin-top:60...this is what sets the entire note area down to the right level...its called wrap
+var txt = "";
+txt += "<div class = 'wrap' style = 'display:grid;grid-template-columns: fl fl fl;margin:auto;margin-top:60px;padding-bottom:20px;'>" 
 	
 	 for (x in myObj) {
-       txt += "<div class = 'listitemicons'  style = 'grid-column:1;border-bottom:solid 1px silver;'>" + myObj[x].icon1 + "<br />" + myObj[x].icon2 + "</div>" + "<div id = 'listitemcontent'  style = 'grid-column:2;border-bottom:solid 1px silver;padding-left:20px;padding-bottom:20px;padding-right:10px;'>" + myObj[x].content + "</div>" + "<div id = 'listitemtime'  style = 'grid-column:3;border-bottom:solid 1px silver;'>" +
+       txt += "<div class = 'listitemicons'  style = 'grid-column:1;border-bottom:solid 1px silver;'>" + myObj[x].icon1 + "<br />" + myObj[x].icon2 + "</div>" + "<div id = 'listitemcontent'  style = 'grid-column:2;border-bottom:solid 1px silver;padding-left:20px;padding-bottom:20px;padding-right:13px;'>" + myObj[x].content + "</div>" + "<div id = 'listitemtime'  style = 'grid-column:3;border-bottom:solid 1px silver;padding-right:10px;'>" +
 	   myObj[x].time + "</div>" ;    
     }
    
