@@ -240,12 +240,14 @@ class = "menu"
  
 link1 = "preSort.html"
 link3 = "sort.html"
+link5 = "live.html"
+link6 = "notes.html" 
 style="margin-bottom:200px;font-family:roboto;">
 
-<a slot = "drop-text1" style = "color:silver;font-weight:bold;margin-left:20px;" href = "presort.html">PRE-SORT</a>
-<a slot = "drop-text3" style = "color:#4D148C;font-weight:bold;margin-left:60px;" href = "sort.html">SORT</a>
-<a slot = "drop-text5" style = "color:#4D148C;font-weight:bold;margin-left:70px;color:silver" href = "live.html">LIVE VIEWS</a>
-<a slot = "drop-text6" style = "color:#4D148C;font-weight:bold;margin-left:90px;color:silver;" href = "notes.html">MY NOTES</a>
+<a slot = "drop-text1" style = "color:silver;font-weight:bold;margin-left:20px;text-decoration:none;" href = "presort.html">PRE-SORT</a>
+<a slot = "drop-text3" style = "color:#4D148C;font-weight:bold;margin-left:60px;text-decoration:none;" href = "sort.html">SORT</a>
+<a slot = "drop-text5" style = "color:silver;font-weight:bold;margin-left:70px;color:silver;text-decoration:none;" href = "live.html">LIVE VIEWS</a>
+<a slot = "drop-text6" style = "color:silver;font-weight:bold;margin-left:90px;color:silver;text-decoration:none;" href = "notes.html">MY NOTES</a>
 </fx-dropdownmenu>
 </div>
 
@@ -265,8 +267,9 @@ style="margin-bottom:200px;font-family:roboto;">
 <span style = "font-size:18px;color:black;font-weight:normal;float:right;text-align:left;">Remaining<br />6,300</span>
 </div> 
 </fx-markup>
+ 
  <fx-markup  style="width:50%;padding-left:120px;position:absolute;top:0px;left:100%;font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto">
- <div slot = "element-name" style = "text-align:center;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Scheduled People</span>  14/<span style = "color:silver;">14 <img src = "pencil.png" onclick="ddd = document.getElementById('jobassignments');ddd.style.display = 'block';" /></span></div>
+ <div slot = "element-name" style = "text-align:center;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Scheduled People</span>  14/<span style = "color:silver;">14 <img src = "pencil.PNG" onclick="ddd = document.getElementById('jobassignments');ddd.style.display = 'block';" /></span></div>
 </fx-markup>
 </div>
 
@@ -329,11 +332,11 @@ style="margin-bottom:200px;font-family:roboto;">
 				</tr>
 </table>
 
-<fx-markup   style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:left;font-family:roboto;"><a href = "" style = "padding-left:48px;font-size:22px;color:#4D1486;font-weight:normal;">Last Arrival Details</a><img src = "search.png" onclick="ddd = document.getElementById('myarrivals');ddd.style.display = 'block';" /></div>
+<fx-markup   style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:left;font-family:roboto;"><a href = "" style = "padding-left:48px;font-size:22px;color:#4D1486;font-weight:normal;">Last Arrival Details</a><img src = "search.PNG" onclick="ddd = document.getElementById('myarrivals');ddd.style.display = 'block';" /></div>
 </fx-markup>
 </div>
  
-<div  class="box flights" style = "padding-left:10px;"><span style="font-size:18px;color:#4D1486;font-weight:bold;">Outbound Flights</span><img src = "pencil.png"  style = "padding-left:10px;" onclick="ddd = document.getElementById('myflights');ddd.style.display = 'block';" id = "myBtn" />			
+<div  class="box flights" style = "padding-left:10px;"><span style="font-size:18px;color:#4D1486;font-weight:bold;">Outbound Flights</span><img src = "pencil.PNG"  style = "padding-left:10px;" onclick="ddd = document.getElementById('myflights');ddd.style.display = 'block';" id = "myBtn" />			
 
 <table   id="details"  cellspacing="0" width="100%" class="footable table toggle-circle">
 				<thead>
