@@ -4,6 +4,27 @@
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>RADAR</title>
+  <!--IMPORTANT jQuery must come first before bootstrap-->
+
+<!--jquery-->
+<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
+
+<!--<script src="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>-->
+
+<!--needed on this screen only for drag and drop-->
+<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+<!--jquery ui-->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+
+<!--<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">-->
+
+ <!--jquery datatables-->
+<!--<script src="http://cdn.datatables.net/1.10.3/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.3/css/jquery.dataTables.css" />-->
+
+<!--<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>-->
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
 <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
 
@@ -132,6 +153,11 @@ grid-column:1/span 2;
 grid-row:12 /span - 8; <!--negative 8 makes the anchor links in grid work-->
 }
 
+#jobassignments {
+        grid-column:1/span 2;
+        grid-row:11;
+    }
+
 #clock {
   font-family: Arial;
   font-size: 18px;
@@ -181,94 +207,101 @@ startTime()
 
 <div class = "wrapper" style = "margin-bottom:150px;">
 
-<div class="box header" style = "position:relative;"> 
+	<div class="box header" style = "position:relative;"> 
+		<date-widget style = "position:absolute;top:0px;right:0px;"></date-widget> 
+		<fx-markup class = "header" style="font-weight:bold;" width = 768 height = 80 c = #4D148C textcolor = "white" size = 32 family = "roboto">
+		<div slot = "element-name" style = "text-align:center;padding-top:30px;font-family:roboto;">RADAR Outbound - PDX </div>
+		</fx-markup >
+	</div>
+
+	<div class="box menu" style = "border-bottom: solid 3px silver;">
+		<fx-dropdownmenu 
+		width = 768 
+		height = 50 
+		orientation = left 
+		c = "white";                       
+		size = 22
+		class = "menu"
+
+		link1 = "preSort.html"
+		link3 = "sort.html"
+		link5 = "live.html"
+		link6 = "notes.html" 
+		style="margin-bottom:200px;font-family:roboto;">
+
+		<a slot = "drop-text1" style = "#4D148C;font-weight:bold;margin-left:20px;text-decoration:none;" href = "presort.html">PRE-SORT</a>
+
+		<a slot = "drop-text2" style = "color:silver;font-weight:bold;margin-left:60px;color:silver;text-decoration:none;" href = "sort.html">SORT</a>
+
+		<a slot = "drop-text5" style = "color:silver;font-weight:bold;margin-left:70px;color:silver;text-decoration:none;" href = "live.html">LIVE VIEWS</a>
+
+		<a slot = "drop-text6" style = "color:silver;font-weight:bold;margin-left:90px;color:silver;;text-decoration:none;" href = "notes.html">MY NOTES</a>
+		</fx-dropdownmenu>
+	</div>
+
+	<div class="box content1">
+		<fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:center;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Expected Volume</span><br />16,300</div>
+		</fx-markup>
+	</div>
+
+	<div class="box content2">
+		<fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:center;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Sort Starts At</span><br />18:05<br /><span style = "display:block;font-size:18px;font-style:italic;">(finalized)</span></div>
+		</fx-markup>
+	</div>
+
+	<div class="box content3" style = "padding-left: 30%;">
+		<fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "float:left;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Bypass Cans</span><br />6<span style = "padding-left:10px;font-size:22px;color:silver;">4 Top / 2 Lower</span></div>
+		</fx-markup>
+	</div>
+
+	<div class="box inspect">
+		<fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 18 family = "roboto"><div  slot = "element-name" style = "text-align:center;font-family:roboto;margin-top:50px;" ><span style ="text-decoration:underline;cursor:pointer;" onclick="nnn = document.getElementById('myinspection');nnn.style.display = 'block';">SCALE INSPECTION</span><img src = "scale.PNG" /></div>
+		</fx-markup>
+	</div>
+
+	<div class="box content5" style = "padding-left: 30%;">
+		<fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto">
+			<div slot = "element-name" style = "float:left;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Haz Volume</span><br />22<img src = "search.PNG" style = "padding-left:15px;"/>
+			</div>
+		</fx-markup>
+	</div>
+
+	<div class="box content6" style = "padding-top:50px;padding-left:110px;">
+		<fx-markup  textcolor = #4D148C size = 58 family = "roboto">
+			<div slot = "element-name" style = "font-family:roboto;">
+			<span style = "font-size:22px;color:black;font-weight:bold;">Scheduled People</span>  14/<span style = "color:silver;">14 <img src = "pencil.PNG" onclick="ddd = document.getElementById('jobassignments');ddd.style.display = 'block';" /></span>
+			</div>
+		</fx-markup>
+	</div> 
+
+	<div class="box content7" style = "padding-left: 15%;">
+		<fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "float:left;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Hwt Volume</span><br />30<img src = "search.PNG" style = "padding-left:15px;"/></div>
+		</fx-markup>
+	</div>
  
-<date-widget style = "position:absolute;top:0px;right:0px;"></date-widget> 
+	<div class="box content9">
+		<fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:center;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Rollovers</span><br />AYYC037FX<span style = "display:block;font-size:20px;font-style:italic;color:#4D148C;font-weight:normal;">Loc: Courtyard/ 1,001 Pcs.</span></div>
+		</fx-markup>
+	</div>
 
-<fx-markup class = "header" style="font-weight:bold;" width = 768 height = 80 c = #4D148C textcolor = "white" size = 32 family = "roboto"><div slot = "element-name" style = "text-align:center;padding-top:30px;font-family:roboto;">RADAR Outbound - PDX </div>
-</fx-markup >
-</div>
+	<div class="box content10">
+		<fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:center;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">ULD Density</span><br />87.6%<span style = "display:block;font-size:18px;font-style:italic;color:silver;">(Previous Sort)</span></div>
+		</fx-markup>
+	</div>
 
-<div class="box menu" style = "border-bottom: solid 3px silver;">
+	<div class="box content11">
+		<fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:center;font-family:roboto;">AYYC038FX<span style = "display:block;font-size:20px;font-style:italic;color:#4D148C;font-weight:normal;">Loc: Courtyard/ 1,111 Pcs.</span></div>
+		</fx-markup>
+	</div>
 
-<fx-dropdownmenu 
-width = 768 
-height = 50 
-orientation = left 
-c = "white";                       
-size = 22
-class = "menu"
-
-link1 = "preSort.html"
-link3 = "sort.html"
-link5 = "live.html"
-link6 = "notes.html" 
-style="margin-bottom:200px;font-family:roboto;">
-
-<a slot = "drop-text1" style = "#4D148C;font-weight:bold;margin-left:20px;text-decoration:none;" href = "presort.html">PRE-SORT</a>
-
-<a slot = "drop-text2" style = "color:silver;font-weight:bold;margin-left:60px;color:silver;text-decoration:none;" href = "sort.html">SORT</a>
-
-<a slot = "drop-text5" style = "color:silver;font-weight:bold;margin-left:70px;color:silver;text-decoration:none;" href = "live.html">LIVE VIEWS</a>
-
-<a slot = "drop-text6" style = "color:silver;font-weight:bold;margin-left:90px;color:silver;;text-decoration:none;" href = "notes.html">MY NOTES</a>
-</fx-dropdownmenu>
-</div>
-
-<div class="box content1"><fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:center;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Expected Volume</span><br />16,300</div>
-</fx-markup>
-
-</div>
-
-<div class="box content2"><fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:center;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Sort Starts At</span><br />18:05<br /><span style = "display:block;font-size:18px;font-style:italic;">(finalized)</span></div>
-</fx-markup>
-</div>
-
-<div class="box content3" style = "padding-left: 30%;"><fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "float:left;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Bypass Cans</span><br />6<span style = "padding-left:10px;font-size:22px;color:silver;">4 Top / 2 Lower</span></div>
-</fx-markup>
-</div>
-
-<div class="box inspect">
-<fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 18 family = "roboto"><div  slot = "element-name" style = "text-align:center;font-family:roboto;margin-top:50px;" ><span style ="text-decoration:underline;cursor:pointer;" onclick="nnn = document.getElementById('myinspection');nnn.style.display = 'block';">SCALE INSPECTION</span><img src = "scale.PNG" /></div>
-</fx-markup>
- 
-</div>
-
-<div class="box content5" style = "padding-left: 30%;"><fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "float:left;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Haz Volume</span><br />22<img src = "search.PNG" style = "padding-left:15px;"/></div>
-</fx-markup>
-</div>
-
-<div class="box content6" style = "padding-top:87px;padding-left:110px;"><span style = "font-size:22px;font-weight:bold;">Pallets Req'd</span><br />
-<select id = "pallets" is = "fx-select" style = "font-size:32px;height:50px;border:solid 1px Gainsboro;width:90px;background-color: #f7f7f7;" >
-<option value = "5">5</option>	 
-</select>
-</div>
-
-<div class="box content7" style = "padding-left: 15%;"><fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "float:left;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Hwt Volume</span><br />30<img src = "search.PNG" style = "padding-left:15px;"/></div>
-</fx-markup>
-</div>
- 
-
-<div class="box content9"><fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:center;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Rollovers</span><br />AYYC037FX<span style = "display:block;font-size:20px;font-style:italic;color:#4D148C;font-weight:normal;">Loc: Courtyard/ 1,001 Pcs.</span></div>
-</fx-markup>
-</div>
-
-<div class="box content10"><fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:center;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">ULD Density</span><br />87.6%<span style = "display:block;font-size:18px;font-style:italic;color:silver;">(Previous Sort)</span></div>
-</fx-markup>
-</div>
-
-<div class="box content11"><fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:center;font-family:roboto;">AYYC038FX<span style = "display:block;font-size:20px;font-style:italic;color:#4D148C;font-weight:normal;">Loc: Courtyard/ 1,111 Pcs.</span></div>
-</fx-markup>
-</div>
-
-<div class="box content12"><fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:center;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Scan Rate <img src = "search.PNG"  /></span><br />4,876/<span style = "font-size:20px;color:silver;">hr</span><a href = "" style = "display:block;font-size:20px;color:#4D148C;font-weight:normal;">Leaderboard</a></div>
-</fx-markup>
-</div>
-
+	<div class="box content12">
+		<fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:center;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Scan Rate <img src = "search.PNG"  /></span><br />4,876/<span style = "font-size:20px;color:silver;">hr</span><a href = "" style = "display:block;font-size:20px;color:#4D148C;font-weight:normal;">Leaderboard</a></div>
+	</fx-markup>
+	</div>
 <div class = "box  outboundflights" style = "padding-left:40px;padding-right:10px;padding-bottom:50px;">
 <span style="font-size:18px;color:#4D1486;font-weight:bold;">Inbound Flights</span>
 
-<img src = "pencil.PNG" onclick="ddd = document.getElementById('myflights');ddd.style.display = 'block';" id = "myBtn" style = "padding-left:10px;"  />	
+<img src = "pencil.png" onclick="ddd = document.getElementById('myflights');ddd.style.display = 'block';" id = "myBtn" style = "padding-left:10px;"  />	
 	
 <table    id="details"  cellspacing="0" width="95%" class="footable table toggle-circle">
 				
@@ -292,7 +325,7 @@ style="margin-bottom:200px;font-family:roboto;">
 				<td style="border-top:none;">19:30</td>
 				<td style="border-top:none;">DC10</td>
 				<td style="border-top:none;">Y</td>
-				<td style="border-top:none;">-</td>
+				<td style="border-top:none;">Y</td>
 				<td style="border-top:none;">Y</td>
 				</tr>
 				<tr >
@@ -302,38 +335,323 @@ style="margin-bottom:200px;font-family:roboto;">
 				<td style="border-top:none;">17:30</td>
 				<td style="border-top:none;">19:30</td>
 				<td style="border-top:none;">DC10</td>
-				<td style="border-top:none;">-</td>
 				<td style="border-top:none;">Y</td>
-				<td style="border-top:none;">-</td>
+				<td style="border-top:none;">Y</td>
+				<td style="border-top:none;">Y</td>
 				</tr>
-				<!--<tr >
+				<tr >
 				<td  style="border-top:none;" name="id" >743</td>
 				<td style="border-top:none;">608</td>
 				<td style="border-top:none;">132</td>
 				<td style="border-top:none;">17:30</td>
 				<td style="border-top:none;">19:30</td>
 				<td style="border-top:none;">DC10</td>
-				<td style="border-top:none;">-</td>
 				<td style="border-top:none;">Y</td>
-				<td style="border-top:none;">-</td>
-				</tr>-->
+				<td style="border-top:none;">Y</td>
+				<td style="border-top:none;">Y</td>
+				</tr>
 </table>
  
 </div>
-<!--this is the overlapping box.  Its not an html page but rather the .js.  Its got be 
-at the end here with a negaative setting in the grid definiation.  Go figure!-->
-<div class="box flightsshown" style = "z-index:1000;margin-top:70px;" > 
-<div id = "myflights" style = "display:none;">
-<radar-flights ></radar-flights>
-</div>
+	
+
+	<!--this is the overlapping box.  Its not an html page but rather the .js.  Its got be 
+	at the end here with a negaative setting in the grid definiation.  Go figure!-->
+	<div class="box flightsshown" style = "z-index:1000;margin-top:70px;" > 
+		<div id = "myflights" style = "display:none;">
+			<radar-flights ></radar-flights>
+		</div>
+	</div>
+
+	<div class="box flightsshown" style = "z-index:1000;margin-top:50px;" > 
+		<div id = "myinspection" style = "display:none;">
+			<radar-scales  c = "white" ypos = 20 width = 95 xpos= 18 ></radar-scales>
+		</div>
+	</div>
+</body>	
+<!--JOB ASSIGNMENTS MODAL-->
+	<!--its important that this be relative position-->					 
+	<div id = "jobassignments" style ="width:90%;background-color:white;color:black; position:relative;top:-890px;left:36px;display:none;box-shadow:10px 10px 10px silver ;border-left:4px solid silver;">
+			<div style='padding-top:15px;background-color:#4D148C;width:100%;height:60px;color:white;font-family:roboto;font-size:38px;font-weight:bold;text-align:center;'>Job Assignments</div>
+		<style>
+			#gallery { float: left; width: 100%;overflow-y: scroll;height:300px; }
+			.gallery.custom-state-active { background: #eee; }
+						  .gallery li { float: left; width: 96px; padding: 0.4em; margin: 0 0.4em 0.4em 0; text-align: center; }
+						  .gallery li h5 { margin: 0 0 0.4em; cursor: move; }
+						  .gallery li a { float: right; }
+						  .gallery li a.ui-icon-zoomin { float: left; }
+						  .gallery li img { width: 100%; cursor: move; }
+						 
+						  #load { float: right;   height:100px; padding: 1%;overflow-y: scroll; }
+						  #load h4 { line-height: 16px; margin: 0 0 0.4em; }
+						  #load h4 .ui-icon { float: left; }
+						  #load .gallery h5 { display: none; }
+						  
+						  #gate { float: right;   height:100px; padding: 1%;overflow-y: scroll; }
+						  #gate h4 { line-height: 16px; margin: 0 0 0.4em; }
+						  #gate h4 .ui-icon { float: left; }
+						  #gate .gallery h5 { display: none; }
+						  
+						  #slide { float: right;   height:100px; padding: 1%;overflow-y: scroll; }
+						  #slide h4 { line-height: 16px; margin: 0 0 0.4em; }
+						  #slide h4 .ui-icon { float: left; }
+						  #slide .gallery h5 { display: none; }
+						  
+						  #drivers { float: right;   height:100px; padding: 1%;overflow-y: scroll;}
+						  #drivers h4 { line-height: 16px; margin: 0 0 0.4em; }
+						  #drivers h4 .ui-icon { float: left; }
+						  #drivers .gallery h5 { display: none; }
+		</style>			  
+						  
+		<script>
+                $( function() {
+						 
+							// There's the gallery and the trash
+							var $gallery = $( "#gallery" ),
+							  $load = $( "#load" );
+							  $gate = $( "#gate" );
+							  $slide = $( "#slide" );
+							  $drivers = $( "#drivers" );
+							  
+							// Let the gallery items be draggable
+							$( "h5", $gallery ).draggable({
+							  cancel: "a.ui-icon", // clicking an icon won't initiate dragging
+							  revert: "invalid", // when not dropped, the item will revert back to its initial position
+							  containment: "document",
+							  helper: "clone",
+							  cursor: "move"
+							});
+							
+							// Let load be droppable, accepting the gallery items
+							$load.droppable({
+							accept: "#gallery > h5",
+							drop: function( event, ui ) {
+							deleteImageLoad( ui.draggable );
+							  }
+							});
+						 
+							// Let gate be droppable, accepting the gallery items
+							$gate.droppable({
+							accept: "#gallery > h5",
+							drop: function( event, ui ) {
+							deleteImage( ui.draggable );
+							  }
+							});
+							
+							// Let slide be droppable, accepting the gallery items
+							$slide.droppable({
+							accept: "#gallery > h5",
+							drop: function( event, ui ) {
+							deleteImageSlide( ui.draggable );
+							  }
+							});
+							
+							// Let drivers be droppable, accepting the gallery items
+							$drivers.droppable({
+							accept: "#gallery > h5",
+							drop: function( event, ui ) {
+							deleteImageDrivers( ui.draggable );
+							  }
+							});
+							
+							// Let the gallery be droppable as well, accepting items from gate
+							$gallery.droppable({
+							  accept: ".droppableShape",
+							  drop: function( event, ui ) {
+							  recycleImage( ui.draggable );
+							  }
+							});
+							
+							
+						 //DELETE
+							
+				//Note: modify var recycle_icon =  with						
+				// Image deletion function load
+							 var xxx_icon = "<a href=''  ></a>";   
+							function deleteImageLoad( $item ) {
+							  $item.fadeOut(function() {
+								var $list = $( "ul", $load ).length ?
+								  $( "ul", $load ) :
+								  $( "<ul class='gallery ui-helper-reset'/>" ).appendTo( $load );
+						 
+								$item.find( "a.ui-icon-trash" ).remove();
+								$item.append( xxx_icon ).appendTo( $list ).fadeIn(function() {
+								  $item
+									.animate({ width: "250px" })
+									.find( "img" )
+									  .animate({ height: "250px" });
+								});
+							  });
+							}   
+							
+							// Image deletion function gate
+
+							var xxx_icon = "<a href=''  ></a>";   
+							
+							function deleteImage( $item ) {
+							  $item.fadeOut(function() {
+								var $list = $( "ul", $gate ).length ?
+								  $( "ul", $gate ) :
+								   $( "<ul class='gallery ui-helper-reset'/>" ).appendTo( $gate );
+						 
+								//$item.find( "a.ui-icon-trash" ).remove();
+								$item.append( xxx_icon ).appendTo( $list ).fadeIn(function() {
+								  $item
+									.animate({ width: "250px" })
+									.find( "img" )
+									  .animate({ height: "250px" });
+								});
+							  });
+							}
+							
+							// Image deletion function slide
+							var xxx_icon = "<a href=''  ></a>";   
+							function deleteImageSlide( $item ) {
+							  $item.fadeOut(function() {
+								var $list = $( "ul", $slide ).length ?
+								  $( "ul", $slide ) :
+								  $( "<ul class='gallery ui-helper-reset'/>" ).appendTo( $slide );
+						 
+								$item.find( "a.ui-icon-trash" ).remove();
+								$item.append( xxx_icon ).appendTo( $list ).fadeIn(function() {
+								  $item
+									.animate({ width: "250px" })
+									.find( "img" )
+									  .animate({ height: "250px" });
+								});
+							  });
+							}
+							
+							// Image deletion function drivers
+							var xxx_icon = "<a href=''  ></a>";   
+							function deleteImageDrivers( $item ) {
+							  $item.fadeOut(function() {
+								var $list = $( "ul", $drivers ).length ?
+								  $( "ul", $drivers ) :
+								  $( "<ul class='gallery ui-helper-reset'/>" ).appendTo( $drivers );
+						 
+								$item.find( "a.ui-icon-trash" ).remove();
+								$item.append( xxx_icon ).appendTo( $list ).fadeIn(function() {
+								  $item
+									.animate({ width: "250px" })
+									.find( "img" )
+									  .animate({ height: "250px" });
+								});
+							  });
+							}
+							
+						 
+						//Recycle	
+						 
+							// Image recycle function
+							var trash_icon = "<a href='link/to/trash/script/when/we/have/js/off' title='Delete this image' class='ui-icon ui-icon-trash'>Delete</a>";
+							function recycleImage( $item ) {
+							  $item.fadeOut(function() {
+								$item
+								  .find( "a.ui-icon-refresh" )
+									.remove()
+								  .end()
+								  .css( "width", "250px")
+								  
+								  .find( "img" )
+									.css( "height", "250px" )
+								  .end()
+								  .appendTo( $gallery )
+								  .fadeIn();
+							  });
+							}
+						 
+							// Image preview function, demonstrating the ui.dialog used as a modal window
+							/*function viewLargerImage( $link ) {
+							  var src = $link.attr( "href" ),
+								title = $link.siblings( "img" ).attr( "alt" ),
+								$modal = $( "img[src$='" + src + "']" );
+						 
+							  if ( $modal.length ) {
+								$modal.dialog( "open" );
+							  } else {
+								var img = $( "<img alt='" + title + "' width='384' height='288' style='display: none; padding: 8px;' />" )
+								  .attr( "src", src ).appendTo( "body" );
+								setTimeout(function() {
+								  img.dialog({
+									title: title,
+									width: 400,
+									modal: true
+								  });
+								}, 1 );
+							  }
+							}*/
+						 
+							// Resolve the icons behavior with event delegation
+							/*$( "ul.gallery > li" ).on( "click", function( event ) {
+							  var $item = $( this ),
+								$target = $( event.target );
+						 
+							  if ( $target.is( "a.ui-icon-trash" ) ) {
+								deleteImage( $item );
+							  } else if ( $target.is( "a.ui-icon-zoomin" ) ) {
+								viewLargerImage( $target );
+							  } else if ( $target.is( "a.ui-icon-refresh" ) ) {
+								recycleImage( $item );
+							  }
+						 
+							  return false;
+							});*/
+			} );
+			</script>
+						 
+						 
+	<div class="ui-widget ui-helper-clearfix" style = "font-family:roboto;font-size:22px;min-height:750px;">
+						 
+				<div id="gallery" class="gallery ui-helper-reset ui-helper-clearfix" style = "position:absolute;top:505px;border-top:thin solid silver;"> 
+						
+						
+						<span  style = "margin-bottom:30px;padding-left:300px;  font-size:28px;width:400px;font-weight:bold;text-shadow:none;">Unassigned</span>
+						
+						<h5 class="ui-widget-content ui-corner-tr  droppableShape " style = "padding-left:20px;">Anthony Smith 123456</h5>
+							
+						<h5 class="ui-widget-content ui-corner-tr  droppableShape " style = "padding-left:20px;">Paula Thomas 874529</h5>
+						
+						<h5  class="ui-widget-content ui-corner-tr  droppableShape " style = "padding-left:20px;">Joe Harris 670031</h5>
+							
+						 
+						<h5  class="ui-widget-content ui-corner-tr  droppableShape " style = "padding-left:20px;">Tom Harnel 119965</h5>
+						
+						<h5 class="ui-widget-content ui-corner-tr  droppableShape " style = "padding-left:20px;">Mary Jenkins 100473</h5>
+							
+						<h5 class="ui-widget-content ui-corner-tr  droppableShape " style = "padding-left:20px;">Janet Hanks 499977</h5>
+						
+						<h5  class="ui-widget-content ui-corner-tr  droppableShape " style = "padding-left:20px;">Tracy Roberts 408150</h5>
+				</div>
+						
+						 <div   id = "load"  style = "position:absolute;top:75px;left:0px;width:50%;height:200px;text-shadow:none;border-right:solid thin silver;"> 
+						 <h4  >Load</h4>
+						</div>
+						 
+						<div    id = "gate"  style = "position:absolute;top:75px;right:0px;width:45%;height:200px;text-shadow:none;"> 
+						 <h4>Gate</h4>
+						</div>
+
+						<div   id = "slide"  style = "position:absolute;top:290px;left:0px;width:50%;height:200px;text-shadow:none;border-top:solid thin silver;border-right:solid thin silver;"> 
+						 <h4  >Slide</h4>
+						</div>
+
+						<div   id = "drivers"  style = "border-top:solid thin silver;position:absolute;right:0px;top:290px;width:45%;height:200px;text-shadow:none;"> 
+						 <h4   >Drivers</h4>
+						</div>
+
+						<input type="button" value="Save" style="position:absolute;right:50px;bottom:20px; height:35px;width:80px;">
+		
+						<input type="button" id= 'myClose'   onclick = "document.getElementById('jobassignments').style.display = 'none';" value="Cancel" style="position:absolute;bottom:20px; height:35px; right:150px;width:80px;"><br /><br /><br />
+		</div>						 
+	</div>
 </div>
 
-<div class="box flightsshown" style = "z-index:1000;margin-top:50px;" > 
-<div id = "myinspection" style = "display:none;">
-<radar-scales  c = "white" ypos = 20 width = 95 xpos= 18 ></radar-scales>
-</div>
-</div>
-</div><!--wrapper-->
 
-</body>
+<!--Note: this screen does not use the grid.  Grid interfers with elements on the screen
+that fail to operate at expected ie. they dont's respond to clicks and anchor elements.
+As a result, I have implemented this screen with what amountst to my own grid and 
+all is good.-->
+</html>			
+
 </html>
