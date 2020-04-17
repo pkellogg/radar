@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale= 1">
   <title>RADAR</title>
   <!--IMPORTANT jQuery must come first before bootstrap-->
 
@@ -35,8 +35,10 @@
 <script src="fx-markup.js"></script>
 <script src="radar-scales.js"></script>
 <script src="radar-flights.js"></script>
+<script src="radar-flightsxxx.js"></script>
 <script src="radar-jobs.js"></script>
 <script src="date-widget.comp.js"></script>
+<script src="radar-flightspre.js"></script>
 
 <!--from faar-stationaddworkgroup.html-->
 <script src="faar-headersearch.js"></script>
@@ -49,114 +51,251 @@
 <script src="fx-secondarybutton.js"></script>
 <script src="faar-listbox.js"></script>
 <script src="fx-accordion-item.js"></script>
+<script src="fx-accordion-item.js"></script>
+
  
 <!--fr stands for fraction unit, a unit of measuremnt to define a fractionof the available container space.
-auto-fill creates columns with as many columns that can fit in the container.-->
+auto-fill creates columns with as many columns that can fit in the container. Note: yoou need height on wrapper to display schedule people right-->
 <style>
-body {background-color:rgb(70 70 70);}
+/*global scope custom css*/
+body {
+	font-family:roboto;
+	 --greenbackground: green;
+	 --redbackground: red;
+
+/*font size*/	 
+	 --padbigtext: 38px;
+	 --padmediumtext : 28px;
+	 --padsmalltext : 18px;
+	 
+	 --phonebigtext: 32px;
+	 --phonemediumtext :22px;
+	 --phonesmalltext : 16px;
+
+/*font style*/		 
+	 --fedexitalic: italic;
+	 
+/*color*/
+	 --fedexpurple: #4D148C;"
+	 --fedexdarkgray: rgb(70 70 70);
+	 --fedexsilver: silver;
+}
+	 
+.wrapper {
+	display:grid;
+	grid-gap: 0px;
+	color: #444;
+	margin:auto;  //horizontal center the grid on screen
+	}
+
+/*iPhone--------------------------------------------------*/
+@media screen and (max-width: 500px) {
+
+radar-scales::part(banner) {background-color: var(--fedexpurple);color:white;}
 
 .wrapper {
-  display:   grid ;
-  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-  grid-template-rows:  80px 60px 1px 0px 140px;
-  //grid-gap: 10px;
-  background-color: #fff;
-  color: #444;
-  width:768px;
-  margin:auto;  //horizontal center the grid on screen
-  //border:1px solid silver;
-  
-}
+	background-color:white;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	grid-template-rows:  80px 40px 10px 10px 10px 80px 80px 80px 80px 80px 80px 150px; 
+	}
 	
-.box {
-  //border:1px solid silver;
-  color: black;
-  padding: 0px;
-  font-size: 150%;
-  font-family: roboto;
-  margin: 0px;
+.header {
+	font-weight:bold; 
+	background-color : #4D148C; 
+	color :  white ; 
+	font-size : 32px; 
+	font-family: "roboto";
+	line-height: .5em;
+	}
+	
+fx-dropdownmenu  {
+	font-size: var(--phonesmalltext);
+	
+	}
+
+.largefont {
+	font-size: var(--phonebigtext);
+	color: var(--fedexpurple);
+	}
+	 
+.mediumfont {
+	 font-size: var(--phonemediumtext);
+	 }
+	 
+.smallfont {
+	font-size: var(--phonesmalltext);
+	}
+	
+.italic {
+	font-style: var(--fedexitalic);
+	}
+	
+.purple {
+	color: var(--fedexpurple);
+	}
+	
+.silver {
+	color: var(--fedexsilver);
+	}
+	 
+body {
+	background-color:white;
+	}
 }
 
+/*iPad-----------------------------------------------------*/
+@media screen and (min-width: 501px) {
+  .wrapper {
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-rows:  80px 40px 10px 10px 10px 80px 80px 80px 80px 80px 80px 150px; 
+   
+   background-color: white; 
+  }
+  
+  .header {
+	font-weight:bold; 
+	line-height: .5em;
+	background-color : #4D148C; 
+	color :  white ; 
+	font-size : 40px; 
+	font-family: "roboto";
+	}
+	
+	fx-dropdownmenu  {
+	font-size: var(--phonemediumtext);
+	}
+}
+
+/*desktop*/
+@media screen and (min-width: 770px) {
+  .wrapper {
+  grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+  grid-template-rows:  80px 40px 10px 10px 10px 80px 80px 80px 80px 80px 80px 150px; 
+   background-color: white; 
+  }
+  
+  .header {
+	font-weight:bold; 
+	line-height:  .5em;
+	background-color : #4D148C; 
+	color :  white ; 
+	font-size : 48px; 
+	font-family: "roboto";
+	}
+	
+	fx-dropdownmenu  {
+	font-size: var(--phonebigtext);
+	}
+}
+ 
+
+/* The Modal (background) */
+.modal {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: red;
+}
+	
 .header {
         grid-column:1/span 2 ;
         grid-row:1;
     }
 	
-.menu {
+fx-dropdownmenu {
         grid-column:1/span 2;
         grid-row: 2;
+		}
+	
+.flightsshown	{
+grid-column:1/span 2;
+grid-row:3;  
+}
+
+.flightsshowninspect	{
+grid-column:1/span 2;
+grid-row:4;  
+}
+
+#jobasignments {
+        grid-column:1/span 2;
+        grid-row:5;
     }
 	
 .content1 {
+	
         grid-column : 1;
-        grid-row : 5;
+        grid-row : 6;
     }
 	
 .content2 {
         grid-column: 2;
-        grid-row : 5;
+        grid-row : 6;
     }
 	
 .content3 {
         grid-column : 1;
-        grid-row : 6;
+        grid-row : 7;
     }
 	
-.inspect {
+.content4 {
         grid-column: 2;
-        grid-row : 6;
+        grid-row : 7;
     }
 	
 .content5 {
         grid-column : 1;
-        grid-row : 7;
+        grid-row : 8;
     }
 	
 .content6 {
         grid-column: 2;
-        grid-row : 7/span 2;
+        grid-row : 8;
     }
 	
 .content7 {
-        grid-column : 1 /span 2;
-        grid-row : 8;
+        grid-column : 1;
+        grid-row : 9;
+    }
+	
+.content8 {
+        grid-column : 2;
+        grid-row : 9;
     }
 	
  
 .content9 {
         grid-column : 1;
-        grid-row : 9;
+        grid-row : 10;
     }
 	
 .content10 {
         grid-column: 2;
-        grid-row : 9;
+        grid-row : 10;
     }
 	
 .content11 {
         grid-column : 1;
-        grid-row : 10;
+        grid-row : 11;
     }
 	
 .content12 {
         grid-column: 2;
-        grid-row : 10;
+        grid-row : 11;
     }
 
 .outboundflights {
         grid-column:1/span 2;
-        grid-row:11;
+        grid-row:12;
     }
 	
-.flightsshown	{
-grid-column:1/span 2;
-grid-row:12 /span - 8; <!--negative 8 makes the anchor links in grid work-->
-}
 
-#jobassignments {
-        grid-column:1/span 2;
-        grid-row:11;
-    }
 
 #clock {
   font-family: Arial;
@@ -165,6 +304,15 @@ grid-row:12 /span - 8; <!--negative 8 makes the anchor links in grid work-->
   color:white;
    
 </style>
+
+<!--display window/viewport dimensions-->
+<script>
+function myFunction() {
+  var w = window.innerWidth;
+  var h = window.innerHeight;
+  alert( "Width: " + w + "<br>Height: " + h);
+}
+</script>
 
 <script>
 function startTime() {
@@ -204,114 +352,138 @@ startTime()
 <body>
 
 <p id="demo"></p>
-
-<div class = "wrapper" style = "margin-bottom:150px;">
-
-	<div class="box header" style = "position:relative;"> 
-		<date-widget style = "position:absolute;top:0px;right:0px;"></date-widget> 
-		<fx-markup class = "header" style="font-weight:bold;" width = 768 height = 80 c = #4D148C textcolor = "white" size = 32 family = "roboto">
+ 
+<div class = "wrapper" >
+	
+	 
+		<!--<date-widget style = "position:absolute;top:0px;right:0px;"></date-widget>--> 
+		
+		 <button onclick="myFunction()" style = "position:absolute;top:0px;left:0px;">Try it</button> 
+		
+		<fx-markup class = "header">
 		<div slot = "element-name" style = "text-align:center;padding-top:30px;font-family:roboto;">RADAR Outbound - PDX </div>
 		</fx-markup >
-	</div>
+	 
 
-	<div class="box menu" style = "border-bottom: solid 3px silver;">
-		<fx-dropdownmenu 
-		width = 768 
-		height = 50 
-		orientation = left 
-		c = "white";                       
-		size = 22
-		class = "menu"
+	  
+		<fx-dropdownmenu      height = 70 orientation = left 
+		c = white>
 
-		link1 = "preSort.html"
-		link3 = "sort.html"
-		link5 = "live.html"
-		link6 = "notes.html" 
-		style="margin-bottom:200px;font-family:roboto;">
+		 <a slot = "drop-text1" style = "#4D148C;font-weight:bold;text-decoration:none;margin-left:20px;margin-right:30px;" href = "presort.html">PRE-SORT</a> 
 
-		<a slot = "drop-text1" style = "#4D148C;font-weight:bold;margin-left:20px;text-decoration:none;" href = "presort.html">PRE-SORT</a>
+		<a slot = "drop-text2" style = "color:silver;font-weight:bold; color:silver;text-decoration:none;margin-right:20px" href = "sort.html">SORT</a>
 
-		<a slot = "drop-text2" style = "color:silver;font-weight:bold;margin-left:60px;color:silver;text-decoration:none;" href = "sort.html">SORT</a>
+		<a slot = "drop-text3" style = "color:silver;font-weight:bold; color:silver;text-decoration:none;margin-right:20px" href = "live.html">LIVE VIEWS</a>
 
-		<a slot = "drop-text5" style = "color:silver;font-weight:bold;margin-left:70px;color:silver;text-decoration:none;" href = "live.html">LIVE VIEWS</a>
-
-		<a slot = "drop-text6" style = "color:silver;font-weight:bold;margin-left:90px;color:silver;;text-decoration:none;" href = "notes.html">MY NOTES</a>
+		<a slot = "drop-text4" style = "color:silver;font-weight:bold; color:silver;;text-decoration:none;margin-right:20px;" href = "notes.html">MY NOTES</a>
 		</fx-dropdownmenu>
+	 
+	
+	<!--this is the overlapping box.  Its not an html page but rather the .js.  Its got be 
+	at the end here with a negaative setting in the grid definiation.  Go figure!-->
+	<div class="flightsshown" style = "z-index:1000;width:100%;" > 
+		<div id = "myflights" style = "display:none;">
+			<radar-flightsxxx ></radar-flightsxxx >
+		</div>
 	</div>
+	
+	
 
-	<div class="box content1">
-		<fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:center;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Expected Volume</span><br />16,300</div>
+	<div class="flightsshowninspect" style = "z-index:1000;margin-top: -25px;" > 
+		<div id = "myinspection" style = "display:none;">
+			<radar-scales></radar-scales>
+		</div>
+	</div>
+ 
+
+	<div class="content1">
+		<fx-markup  style="font-weight:bold;" family = "roboto"><div  slot = "element-name" style = "text-align:center;color:red;"><span class = "mediumfont" >Expected Volume</span><br /><span class = "largefont">16,300</span></div>
 		</fx-markup>
 	</div>
 
-	<div class="box content2">
-		<fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:center;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Sort Starts At</span><br />18:05<br /><span style = "display:block;font-size:18px;font-style:italic;">(finalized)</span></div>
+	<div class="content2">
+		<fx-markup  style="font-weight:bold;"  family = "roboto"><div slot = "element-name" style = "text-align:center;"><span class = "mediumfont">Sort Starts At</span><br /><span class = "largefont">18:05</span><br /><span class = "smallfont" style = "display:block;">(finalized)</span></div>
 		</fx-markup>
 	</div>
 
-	<div class="box content3" style = "padding-left: 30%;">
-		<fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "float:left;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Bypass Cans</span><br />6<span style = "padding-left:10px;font-size:22px;color:silver;">4 Top / 2 Lower</span></div>
+	<div class="content3"  >
+		<fx-markup  style="font-weight:bold;" family = "roboto"><div slot = "element-name" style = "text-align:center;"><span class = "mediumfont">Bypass Cans</span><br /><span class = "largefont">6</span><span class = "smallfont italic silver" style = "padding-left:10px;">4 Top / 2 Lower</span></div>
 		</fx-markup>
 	</div>
 
-	<div class="box inspect">
-		<fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 18 family = "roboto"><div  slot = "element-name" style = "text-align:center;font-family:roboto;margin-top:50px;" ><span style ="text-decoration:underline;cursor:pointer;" onclick="nnn = document.getElementById('myinspection');nnn.style.display = 'block';">SCALE INSPECTION</span><img src = "scale.PNG" /></div>
+	<div class="content4">
+		<fx-markup  style="font-weight:bold;"  family = "roboto"><div  slot = "element-name" style = "text-align:center;font-family:roboto;" ><span
+        class = "smallfont purple" style ="text-decoration:underline;cursor:pointer;" onclick="nnn = document.getElementById('myinspection');nnn.style.display = 'block';">SCALE INSPECTION</span>&nbsp;&nbsp;&nbsp;<img src = "scale.PNG" style = "height:35px;" /></div>
 		</fx-markup>
 	</div>
 
-	<div class="box content5" style = "padding-left: 30%;">
-		<fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto">
-			<div slot = "element-name" style = "float:left;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Haz Volume</span><br />22<img src = "search.PNG" style = "padding-left:15px;"/>
-			</div>
+	<div class="content5">
+		<fx-markup  style="font-weight:bold;"  family = "roboto">
+			<div slot = "element-name" style = "text-align:center;"><span class = "mediumfont">Haz Volume</span><br /><span class = "largefont">22</span><img src = "search.PNG" style = "padding-left:15px;height:25px"/></div>
 		</fx-markup>
 	</div>
 
-	<div class="box content6" style = "padding-top:50px;padding-left:110px;">
-		<fx-markup  textcolor = #4D148C size = 58 family = "roboto">
-			<div slot = "element-name" style = "font-family:roboto;">
-			<span style = "font-size:22px;color:black;font-weight:bold;">Scheduled People</span>  14/<span style = "color:silver;">14 <img src = "pencil.PNG" onclick="ddd = document.getElementById('jobassignments');ddd.style.display = 'block';" /></span>
+	<div class="content6">
+		<fx-markup   family = "roboto">
+			<div slot = "element-name" style = "text-align:center;">
+			<span class = "mediumfont" style = "font-weight:bold;text-align:center;">Scheduled People</span><br /><span class = "largefont">14/</span><span class = "largefont fedexsilver">14</span>&nbsp;&nbsp;&nbsp;<img src = "pencil.PNG"   style = "height:25px;" onclick="ddd = document.getElementById('jobasignments');ddd.style.display = 'block';" /></span>
 			</div>
 		</fx-markup>
 	</div> 
 
-	<div class="box content7" style = "padding-left: 15%;">
-		<fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "float:left;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Hwt Volume</span><br />30<img src = "search.PNG" style = "padding-left:15px;"/></div>
+	<div class="content7">
+		<fx-markup  style="font-weight:bold;" family = "roboto"><div slot = "element-name" style = "text-align:center;"><span class = "mediumfont">Hwt Volume</span><br /><span class = "largefont">30</span><img src = "search.PNG" style = "padding-left:15px;height:25px;"/></div>
+		</fx-markup>
+	</div>
+	
+	<div class="content8">
+		<fx-markup  style="font-weight:bold;"   family = "roboto"><div slot = "element-name" style = "text-align:center;"><span class = "mediumfont">ULD Density</span><br />87.6%<span style = "display:block;font-size:18px;font-style:italic;color:silver;">(Previous Sort)</span></div>
 		</fx-markup>
 	</div>
  
-	<div class="box content9">
-		<fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:center;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Rollovers</span><br />AYYC037FX<span style = "display:block;font-size:20px;font-style:italic;color:#4D148C;font-weight:normal;">Loc: Courtyard/ 1,001 Pcs.</span></div>
+	<div class="content9">
+		<fx-markup  style="font-weight:bold;"  family = "roboto"><div slot = "element-name" style = "text-align:center;"><span class = "mediumfont">Rollovers</span><br /><span class = "largefont">AYYC037FX</span><br /><span class = "smallfont italic silver" style = "padding-left:10px;">Loc: Courtyard/ 1,001 Pcs.</span></div>
 		</fx-markup>
 	</div>
-
-	<div class="box content10">
-		<fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:center;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">ULD Density</span><br />87.6%<span style = "display:block;font-size:18px;font-style:italic;color:silver;">(Previous Sort)</span></div>
-		</fx-markup>
-	</div>
-
-	<div class="box content11">
-		<fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:center;font-family:roboto;">AYYC038FX<span style = "display:block;font-size:20px;font-style:italic;color:#4D148C;font-weight:normal;">Loc: Courtyard/ 1,111 Pcs.</span></div>
-		</fx-markup>
-	</div>
-
-	<div class="box content12">
-		<fx-markup  style="font-weight:bold;" textcolor = #4D148C size = 58 family = "roboto"><div slot = "element-name" style = "text-align:center;font-family:roboto;"><span style = "font-size:22px;color:black;font-weight:bold;">Scan Rate <img src = "search.PNG"  /></span><br />4,876/<span style = "font-size:20px;color:silver;">hr</span><a href = "" style = "display:block;font-size:20px;color:#4D148C;font-weight:normal;">Leaderboard</a></div>
+	
+	<div class="content10">
+		<fx-markup  style="font-weight:bold;"  family = "roboto"><div slot = "element-name" style = "text-align:center;"><span class = "mediumfont">Scan Rate <img src = "search.PNG" style= "height:25px;" /></span><br /><span class = "largefont">4,876/</span><span style = "font-size:20px;color:silver;">hr</span><br /><a href = "" class = "smallfont purple">Leaderboard</a></div>
 	</fx-markup>
 	</div>
-<div class = "box  outboundflights" style = "padding-left:40px;padding-right:10px;padding-bottom:50px;">
-<span style="font-size:18px;color:#4D1486;font-weight:bold;">Inbound Flights</span>
 
-<img src = "pencil.png" onclick="ddd = document.getElementById('myflights');ddd.style.display = 'block';" id = "myBtn" style = "padding-left:10px;"  />	
+	<div class="content11">
+		<fx-markup  style="font-weight:bold;" family = "roboto"><div slot = "element-name" style = "text-align:center;"><span class = "largefont">AYYC038FX</span><br /><span class = "smallfont italic silver">Loc: Courtyard/ 1,111 Pcs.</span></div>
+		</fx-markup>
+	</div>
+
 	
-<table    id="details"  cellspacing="0" width="95%" class="footable table toggle-circle">
-				
+	
+<div class = "outboundflights" style = "padding-left:15px;padding-right: 5px;padding-bottom:10px;">
+<span style="font-size:16px;color:#4D1486;font-weight:bold;">Inbound Flights</span>
+
+<img src = "pencil.png" style = "height:25px;" onclick="ddd = document.getElementById('myflights');ddd.style.display = 'block';" id = "myBtn" style = "padding-left:10px;"  />	
+	
+<table    id="details"  class = "smallfont"  cellspacing="0" width="98%" class="footable table toggle-circle">
+				<thead>
+				<tr style = "text-align:left;"> 
+				<th data-sort-initial="true" data-type="numeric" data-class="expand"  data-toggle="true">Flight</th>
+				<th>Tail #</th>
+				<th>Gate</th>
+				<th>Arrive</th>
+				<th>Model</th>
+				<th>Cage</th>
+				<th>Guards</th>
+				<th>Fly</th>
+				 
+				</tr> 
+				</thead>      
 				 
 				<tr >
 				<td  style="border-top:none;" name="id" >743</td>
 				<td style="border-top:none;">608</td>
 				<td style="border-top:none;">132</td>
 				<td style="border-top:none;">17:30</td>
-				<td style="border-top:none;">19:30</td>
+				 
 				<td style="border-top:none;">DC10</td>
 				<td style="border-top:none;">Y</td>
 				<td style="border-top:none;">Y</td>
@@ -322,10 +494,10 @@ startTime()
 				<td style="border-top:none;">608</td>
 				<td style="border-top:none;">132</td>
 				<td style="border-top:none;">17:30</td>
-				<td style="border-top:none;">19:30</td>
+				 
 				<td style="border-top:none;">DC10</td>
 				<td style="border-top:none;">Y</td>
-				<td style="border-top:none;">Y</td>
+				<td style="border-top:none;">-</td>
 				<td style="border-top:none;">Y</td>
 				</tr>
 				<tr >
@@ -333,49 +505,70 @@ startTime()
 				<td style="border-top:none;">608</td>
 				<td style="border-top:none;">132</td>
 				<td style="border-top:none;">17:30</td>
-				<td style="border-top:none;">19:30</td>
+				 
 				<td style="border-top:none;">DC10</td>
+				<td style="border-top:none;">-</td>
 				<td style="border-top:none;">Y</td>
-				<td style="border-top:none;">Y</td>
-				<td style="border-top:none;">Y</td>
+				<td style="border-top:none;">-</td>
 				</tr>
 				<tr >
-				<td  style="border-top:none;" name="id" >743</td>
-				<td style="border-top:none;">608</td>
-				<td style="border-top:none;">132</td>
-				<td style="border-top:none;">17:30</td>
-				<td style="border-top:none;">19:30</td>
-				<td style="border-top:none;">DC10</td>
-				<td style="border-top:none;">Y</td>
-				<td style="border-top:none;">Y</td>
-				<td style="border-top:none;">Y</td>
-				</tr>
 </table>
  
 </div>
 	
-
-	<!--this is the overlapping box.  Its not an html page but rather the .js.  Its got be 
-	at the end here with a negaative setting in the grid definiation.  Go figure!-->
-	<div class="box flightsshown" style = "z-index:1000;margin-top:70px;" > 
-		<div id = "myflights" style = "display:none;">
-			<radar-flights ></radar-flights>
-		</div>
-	</div>
-
-	<div class="box flightsshown" style = "z-index:1000;margin-top:50px;" > 
-		<div id = "myinspection" style = "display:none;">
-			<radar-scales  c = "white" ypos = 20 width = 95 xpos= 18 ></radar-scales>
-		</div>
-	</div>
-</body>	
-<!--JOB ASSIGNMENTS MODAL-->
+<!--JOB ASSIGNMENTS-->
 	<!--its important that this be relative position-->					 
-	<div id = "jobassignments" style ="width:90%;background-color:white;color:black; position:relative;top:-890px;left:36px;display:none;box-shadow:10px 10px 10px silver ;border-left:4px solid silver;">
-			<div style='padding-top:15px;background-color:#4D148C;width:100%;height:60px;color:white;font-family:roboto;font-size:38px;font-weight:bold;text-align:center;'>Job Assignments</div>
-		<style>
-			#gallery { float: left; width: 100%;overflow-y: scroll;height:300px; }
-			.gallery.custom-state-active { background: #eee; }
+<div id = "jobasignments" style ="z-index:1000;width:100%;background-color:red;color:black; display:none;position:absolute;top:165px;">
+	
+	<div class="ui-widget ui-helper-clearfix" style = "background-color:white;font-family:roboto;font-size:22px;min-height:1000px;">
+						 
+		<div id="gallery" class="gallery ui-helper-reset ui-helper-clearfix" style = "position:absolute;top:505px;border-top:thin solid silver;height:530px;"> 
+						
+			<span  style = "margin-bottom:200px;padding-left:300px;  font-size:28px;width:400px;height:500px;font-weight:bold;text-shadow:none;">Unassigned</span>
+						
+						<h5 class="ui-widget-content ui-corner-tr  droppableShape " style = "padding-left:20px;">Anthony Smith 123456</h5>
+							
+						<h5 class="ui-widget-content ui-corner-tr  droppableShape " style = "padding-left:20px;">Paula Thomas 874529</h5>
+						
+						<h5  class="ui-widget-content ui-corner-tr  droppableShape " style = "padding-left:20px;">Joe Harris 670031</h5>
+							
+						 
+						<h5  class="ui-widget-content ui-corner-tr  droppableShape " style = "padding-left:20px;">Tom Harnel 119965</h5>
+						
+						<h5 class="ui-widget-content ui-corner-tr  droppableShape " style = "padding-left:20px;">Mary Jenkins 100473</h5>
+							
+						<h5 class="ui-widget-content ui-corner-tr  droppableShape " style = "padding-left:20px;">Janet Hanks 499977</h5>
+						
+						<h5  class="ui-widget-content ui-corner-tr  droppableShape " style = "padding-left:20px;">Tracy Roberts 408150</h5>
+		</div>
+						
+		<div   id = "load"  style = "position:absolute;top:75px;left:0px;width:50%;height:200px;text-shadow:none;border-right:solid thin silver;"> 
+			<h4  >Load</h4>
+		</div>
+						 
+		<div    id = "gate"  style = "position:absolute;top:75px;right:0px;width:45%;height:200px;text-shadow:none;"> 
+			<h4>Gate</h4>
+		</div>
+
+		<div   id = "slide"  style = "position:absolute;top:290px;left:0px;width:50%;height:200px;text-shadow:none;border-top:solid thin silver;border-right:solid thin silver;"> 
+			<h4  >Slide</h4>
+		</div>
+
+		<div   id = "drivers"  style = "border-top:solid thin silver;position:absolute;right:0px;top:290px;width:45%;height:200px;text-shadow:none;"> 
+			<h4   >Drivers</h4>
+		</div>
+
+		<input type="button" value="Save" style="position:absolute;right:50px;bottom:20px; height:35px;width:80px;">
+		
+		<input type="button" id= 'myClose'   onclick = "document.getElementById('jobasignments').style.display = 'none';" value="Cancel" style="position:absolute;bottom:20px; height:35px; right:150px;width:80px;"><br /><br /><br />
+	</div>						 
+</div>
+
+</div><!--wrapper-->
+
+<style>
+	#gallery { float: left; width: 100%;overflow-y: scroll;height:300px; }
+		.gallery.custom-state-active { background: #eee; }
 						  .gallery li { float: left; width: 96px; padding: 0.4em; margin: 0 0.4em 0.4em 0; text-align: center; }
 						  .gallery li h5 { margin: 0 0 0.4em; cursor: move; }
 						  .gallery li a { float: right; }
@@ -401,9 +594,9 @@ startTime()
 						  #drivers h4 { line-height: 16px; margin: 0 0 0.4em; }
 						  #drivers h4 .ui-icon { float: left; }
 						  #drivers .gallery h5 { display: none; }
-		</style>			  
-						  
-		<script>
+</style>			  
+		
+<script>
                 $( function() {
 						 
 							// There's the gallery and the trash
@@ -599,54 +792,8 @@ startTime()
 							});*/
 			} );
 			</script>
-						 
-						 
-	<div class="ui-widget ui-helper-clearfix" style = "font-family:roboto;font-size:22px;min-height:750px;">
-						 
-				<div id="gallery" class="gallery ui-helper-reset ui-helper-clearfix" style = "position:absolute;top:505px;border-top:thin solid silver;"> 
-						
-						
-						<span  style = "margin-bottom:30px;padding-left:300px;  font-size:28px;width:400px;font-weight:bold;text-shadow:none;">Unassigned</span>
-						
-						<h5 class="ui-widget-content ui-corner-tr  droppableShape " style = "padding-left:20px;">Anthony Smith 123456</h5>
-							
-						<h5 class="ui-widget-content ui-corner-tr  droppableShape " style = "padding-left:20px;">Paula Thomas 874529</h5>
-						
-						<h5  class="ui-widget-content ui-corner-tr  droppableShape " style = "padding-left:20px;">Joe Harris 670031</h5>
-							
-						 
-						<h5  class="ui-widget-content ui-corner-tr  droppableShape " style = "padding-left:20px;">Tom Harnel 119965</h5>
-						
-						<h5 class="ui-widget-content ui-corner-tr  droppableShape " style = "padding-left:20px;">Mary Jenkins 100473</h5>
-							
-						<h5 class="ui-widget-content ui-corner-tr  droppableShape " style = "padding-left:20px;">Janet Hanks 499977</h5>
-						
-						<h5  class="ui-widget-content ui-corner-tr  droppableShape " style = "padding-left:20px;">Tracy Roberts 408150</h5>
-				</div>
-						
-						 <div   id = "load"  style = "position:absolute;top:75px;left:0px;width:50%;height:200px;text-shadow:none;border-right:solid thin silver;"> 
-						 <h4  >Load</h4>
-						</div>
-						 
-						<div    id = "gate"  style = "position:absolute;top:75px;right:0px;width:45%;height:200px;text-shadow:none;"> 
-						 <h4>Gate</h4>
-						</div>
 
-						<div   id = "slide"  style = "position:absolute;top:290px;left:0px;width:50%;height:200px;text-shadow:none;border-top:solid thin silver;border-right:solid thin silver;"> 
-						 <h4  >Slide</h4>
-						</div>
-
-						<div   id = "drivers"  style = "border-top:solid thin silver;position:absolute;right:0px;top:290px;width:45%;height:200px;text-shadow:none;"> 
-						 <h4   >Drivers</h4>
-						</div>
-
-						<input type="button" value="Save" style="position:absolute;right:50px;bottom:20px; height:35px;width:80px;">
-		
-						<input type="button" id= 'myClose'   onclick = "document.getElementById('jobassignments').style.display = 'none';" value="Cancel" style="position:absolute;bottom:20px; height:35px; right:150px;width:80px;"><br /><br /><br />
-		</div>						 
-	</div>
-</div>
-
+</body>	
 
 <!--Note: this screen does not use the grid.  Grid interfers with elements on the screen
 that fail to operate at expected ie. they dont's respond to clicks and anchor elements.
@@ -654,4 +801,4 @@ As a result, I have implemented this screen with what amountst to my own grid an
 all is good.-->
 </html>			
 
-</html>
+ 
