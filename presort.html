@@ -53,9 +53,9 @@
 <script src="fx-accordion-item.js"></script>
 <script src="fx-accordion-item.js"></script>
 
- 
 <!--fr stands for fraction unit, a unit of measuremnt to define a fractionof the available container space.
-auto-fill creates columns with as many columns that can fit in the container. Note: yoou need height on wrapper to display schedule people right-->
+auto-fit creates columns with as many columns that can fit in the container. 
+Note: yoou need height on wrapper to display schedule people right-->
 
 <style>
 /*global scope custom css*/
@@ -65,16 +65,18 @@ auto-fill creates columns with as many columns that can fit in the container. No
 						--greenbackground: green;
 						--redbackground: red;
 
-						--phonebigtext: 32px;
-						--phonemediumtext :22px;
-						--phonesmalltext : 16px;
+						--iphonemenutext: 16px;
+						--iphonelargetext:20px;
+						--iphonemediumtext :18px;
+						--iphonesmalltext : 16px;
 	 
-						--padbigtext: 34px;
-						--padmediumtext : 28px;
+						--ipadmenutext: 22px;
+						--ipadlargetext:26px;
+						--padmediumtext : 22px;
 						--padsmalltext : 18px;
 	 
-						--notebook: 38px;
-						--desktop: 42px;
+						--notebookmenutext: 28px;
+						--desktopmenutext: 34px;
 	 
 						--fedexitalic: italic;
 	 
@@ -87,297 +89,11 @@ auto-fill creates columns with as many columns that can fit in the container. No
 						display:grid;
 						grid-gap: 0px;
 						color: #444;
-						margin:auto;  //horizontal center the grid on screen
-						}
-
-/*phones--------------------------------------------------*/
-@media screen and (max-width: 600px) {
-
-	radar-scales::part(banner) {background-color: var(--fedexpurple);color:white;}
-
-	.wrapper 			{
-						grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-						grid-template-rows:  80px 40px 10px 10px 10px 80px 80px 80px 80px 80px 80px 150px;
-						background-color:white;
-						}
-	
-	.header 			{
-						font-weight:bold; 
-						background-color : #4D148C; 
-						color :  white ; 
-						font-size : 32px; 
-						font-family: "roboto";
-						line-height: .5em;
-						width:100%
-						}
-	
-	fx-dropdownmenu  	{
-						font-size: var(--phonesmalltext);
-						}
-	
-	#presort			{
-						padding-left:30px;padding-right:30px;color:var(--fedexpurple);
-						}
-
-	#sort				{
-						padding-right:30px;
-						color:var(--fedexsilver);
-						} 
-
-	#live				{
-						padding-right:30px;
-						color:var(--fedexsilver);
-						}
-
-	#notes				{
-						padding-right:30px;
-						color:var(--fedexsilver);
-						}
-
-	.largefont 			{
-						font-size: var(--phonebigtext);
-						color: var(--fedexpurple);
-						}
-	 
-	.mediumfont 		{
-						font-size: var(--phonemediumtext);
-						}
-	 
-	.smallfont 			{
-						font-size: var(--phonesmalltext);
-						}
-	
-	.italic 			{
-						font-style: var(--fedexitalic);
-						}
-	
-	.purple 			{
-						color: var(--fedexpurple);
-						}
-	
-	.silver 			{
-						color: var(--fedexsilver);
-						}
-	 
-	body 				{
-						background-color:white;
-						}
-
-						/*0 is top and bottom, auto is left and rigth to fill the container equally*/				
-	.outboundflights	{
-						margin: 0 auto;
-						width:350px;  
-						}	
-  
-}
-
-/*portrait tablest and large phones-----------------------------------------------------*/
-@media screen and (min-width: 600px)
-	{
-
-  .wrapper 				{
-						grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-						grid-template-rows:  80px 40px 10px 10px 10px 80px 80px 80px 80px 80px 80px 150px; 
-						background-color: tan; 
-						}
-  
-  .header {
-						font-weight:bold; 
-						line-height: .5em;
-						background-color : #4D148C; 
-						color :  white ; 
-						font-size : 40px; 
-						font-family: "roboto";
-						}
-	
-	fx-dropdownmenu  	{
-						font-size: var(--padmediumtext);
-						}
-	
-	#presort			{
-						padding-left:30px;padding-right:30px;color:var(--fedexpurple);
-						}
-
-	#sort				{
-						padding-right:30px;
-						color:var(--fedexsilver);
-						} 
-
-	#live				{
-						padding-right:30px;
-						color:var(--fedexsilver);
-						}
-
-	#notes				{
-						padding-right:30px;
-						color:var(--fedexsilver);
-						}
-				
-						/*0 is top and bottom, auto is left and rigth to fill the container equally*/				
-	.outboundflights	{
-						margin: 0 auto;
-						width:450px;  
-						}
-	}/*media query*/
-
-/*landscape tablets-----------------------------------------------------*/
-@media screen and (min-width: 768px) 
-	{
-  
-  .wrapper 				{
-						grid-template-columns: repeat(auto-fill, minmax(384px, 1fr));
-						grid-template-rows:  80px 40px 10px 10px 10px 80px 80px 80px 80px 80px 80px 150px; 
-						background-color: yellow;  
-						}
-  
-  .header 				{
-						font-weight:bold; 
-						line-height: .5em;
-						background-color : #4D148C; 
-						color :  white ; 
-						font-size : 40px; 
-						font-family: "roboto";
-						}
-	
-	fx-dropdownmenu  	{
-						font-size: var(--padbigtext);
-						}
-	
-	#presort			{
-						padding-left:60px;padding-right:48px;color:var(--fedexpurple);
-						}
-
-	#sort				{
-						padding-right:48px;
-						color:var(--fedexsilver);
-						} 
-
-	#live				{
-						padding-right:48px;
-						color:var(--fedexsilver);
-						}
-
-	#notes				{
-						color:var(--fedexsilver);
-						}
-				
-						/*0 is top and bottom, auto is left and rigth to fill the container equally*/				
-	.outboundflights	{
-						margin: 0 auto;
-						width:600px;  
-						}
-	}/*media query*/
-
-/*laptop and desktop-----------------------------------------------------*/
-/*min width for column is 496px to make sure columns dont get too narrow. 1fr tells browser
-  to distribued the space between the column so that each column is equal to fill the space*/
-  /*auto-fit the content stretches to fill the entire row..auto-fill allows empty columns*/
-  
-@media screen and (min-width: 992px) 
-	{
-  
-  .wrapper 				{
-						grid-template-columns: repeat(auto-fit, minmax(496px, 1fr)); 
-						grid-template-rows:  80px 40px 10px 10px 10px 80px 80px 80px 80px 80px 80px 150px; 
-						background-color: teal;  
-						}
-  
-  .header 				{
-						font-weight:bold; 
-						line-height: .5em;
-						background-color : #4D148C; 
-						color :  white ; 
-						font-size : 40px; 
-						font-family: "roboto";
 						width:100%;
+						 
 						}
-	
-	fx-dropdownmenu  	{
-						font-size: var(--padbigtext);
-						}
-	
-	#presort			{
-						padding-left:110px;padding-right:69px;color:var(--fedexpurple);
-						}
-
-	#sort				{
-						padding-right:60px;
-						color:var(--fedexsilver);
-						} 
-
-	#live				{
-						padding-right:60px;
-						color:var(--fedexsilver);
-						}
-
-	#notes				{
-						color:var(--fedexsilver);
-						}
-				
-						/*0 is top and bottom, auto is left and rigth to fill the container equally*/				
-	.outboundflights	{
-						margin: 0 auto;
-						width:700px;  
-						}
-	} /*media query*/
-
-
-/*large laptop and desktop*/
-/*flexible width (1fr) but with a minimum 600px width for the columns*/
-
-@media screen and (min-width: 1200px) 
-	{
-	
-	.wrapper 			{
-						grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));  
-						grid-template-rows:  80px 40px 10px 10px 10px 80px 80px 80px 80px 80px 80px 150px; 
-						margin-left: 5%;
-						margin-right: 5%;
-  
-						 background-color: orange; 
-						}
-  
-  .header 				{
-						font-weight:bold; 
-						line-height:  .5em;
-						background-color : #4D148C; 
-						color :  white ; 
-						font-size : 48px; 
-						font-family: "roboto";
-						width:100%;
-						}
-	
-	fx-dropdownmenu  	{
-						font-size: var(--desktop);
-						width:100%;
-						}
-	
-	#presort			{
-						padding-left:90px;padding-right:130px;color:var(--fedexpurple);
-						}
-
-	#sort				{
-						padding-right:130px;
-						color:var(--fedexsilver);
-						} 
-
-	#live				{
-						padding-right:130px;
-						color:var(--fedexsilver);
-						}
-
-	#notes				{
-						color:var(--fedexsilver);
-						}
-
-						/*0 is top and bottom, auto is left and rigth to fill the container equally*/				
-	.outboundflights	{
-						margin: 0 auto;
-						width:800px;  
-						}
-	} /*media query*/
-
-/* The Modal (background) */
+						
+	/* The Modal (background) */
 	.modal 				{
 						display: block;
 						position: fixed;
@@ -396,10 +112,10 @@ auto-fill creates columns with as many columns that can fit in the container. No
 						grid-row:1;
 						}
 	
-	fx-dropdownmenu 
+	fx-dropdownmenu
 						{
 						grid-column:1/span 2;
-						grid-row: 2;	
+						grid-row: 2;
 						}
 	
 	.flightsshown		{
@@ -501,7 +217,327 @@ auto-fill creates columns with as many columns that can fit in the container. No
 						font-size: 18px;
 						text-align: center;
 						color:white;
+						}					
+
+/*phones iPhone 6/7/8 and Plus and iPhone X  and Galaxy 5 etc.--------------------------------------------------*/
+@media screen and (min-width: 320px) and  (max-width: 500px) 
+						{
+
+	radar-scales::part(banner) {background-color: var(--fedexpurple);color:white;}
+
+	.wrapper 			{
+						
+						grid-template-rows:  80px 40px 10px 10px 10px 80px 80px 80px 80px 80px 80px 150px;
+						background-color:white;
 						}
+	
+	.header 			{
+						font-weight:bold; 
+						background-color : #4D148C; 
+						color :  white ; 
+						font-size : 32px; 
+						font-family: "roboto";
+						line-height: .5em;
+						width:100%
+						}
+	
+	fx-dropdownmenu  	{
+						font-size: var(--iphonemenutext);
+						padding-left: 0px; 
+						}
+	
+	#presort			{
+						 padding-right:15px;padding-left:0px;color:var(--fedexpurple);
+						}
+
+	#sort				{
+						padding-right:20px;
+						color:var(--fedexsilver);
+						} 
+
+	#live				{
+						padding-right:20px;
+						color:var(--fedexsilver);
+						}
+
+	#notes				{
+						 
+						color:var(--fedexsilver);
+						}
+
+	.largefont 			{
+						font-size: var(--phonebigtext);
+						color: var(--fedexpurple);
+						}
+	 
+	.mediumfont 		{
+						font-size: var(--phonemediumtext);
+						}
+	 
+	.smallfont 			{
+						font-size: var(--phonesmalltext);
+						}
+	
+	.italic 			{
+						font-style: var(--fedexitalic);
+						}
+	
+	.purple 			{
+						color: var(--fedexpurple);
+						}
+	
+	.silver 			{
+						color: var(--fedexsilver);
+						}
+	 
+	body 				{
+						background-color:white;
+						}
+
+						/*0 is top and bottom, auto is left and rigth to fill the container equally*/				
+	.outboundflights	{
+						margin: 0 auto;
+						width:350px;  
+						}	
+  
+}
+
+/*portrait tablest and large phones-----------------------------------------------------*/
+@media screen and (min-width: 600px)
+	{
+
+  .wrapper 				{
+						grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+						grid-template-rows:  80px 40px 10px 10px 10px 80px 80px 80px 80px 80px 80px 150px; 
+						/*background-color: tan;*/ 
+						}
+  
+  .header {
+						font-weight:bold; 
+						line-height: .5em;
+						background-color : #4D148C; 
+						color :  white ; 
+						font-size : 40px; 
+						font-family: "roboto";
+						}
+	
+	fx-dropdownmenu  	{
+						font-size: var(--padmediumtext);
+						}
+	
+	#presort			{
+						padding-left:30px;padding-right:30px;color:var(--fedexpurple);
+						}
+
+	#sort				{
+						padding-right:30px;
+						color:var(--fedexsilver);
+						} 
+
+	#live				{
+						padding-right:30px;
+						color:var(--fedexsilver);
+						}
+
+	#notes				{
+						padding-right:30px;
+						color:var(--fedexsilver);
+						}
+				
+						/*0 is top and bottom, auto is left and rigth to fill the container equally*/				
+	.outboundflights	{
+						margin: 0 auto;
+						width:450px;  
+						}
+	}/*media query*/
+
+/*landscape tablets iPad-----------------------------------------------------*/
+@media screen and (min-width: 768px) 
+	{
+  
+  .wrapper 				{
+						grid-template-columns: repeat(auto-fill, lfr, 1fr);
+						grid-template-rows:  80px 40px 10px 10px 10px 90px 90px 90px 90px 90px 90px 150px; 
+						/*background-color: yellow;*/  
+						}
+  
+  .header 				{
+						font-weight:bold; 
+						line-height: .5em;
+						background-color : #4D148C; 
+						color :  white ; 
+						font-size : 40px; 
+						font-family: "roboto";
+						}
+	
+	fx-dropdownmenu  	{
+						font-size: var(--ipadmenutext);
+						}
+	
+	#presort			{
+						padding-left:100px;padding-right:48px;color:var(--fedexpurple);
+						}
+
+	#sort				{
+						padding-right:48px;
+						color:var(--fedexsilver);
+						} 
+
+	#live				{
+						padding-right:48px;
+						color:var(--fedexsilver);
+						}
+
+	#notes				{
+						color:var(--fedexsilver);
+						}
+						
+	.mediumfont			{
+						font-size: 24px;
+						}
+						
+	.largefont			{
+						font-size: 32px;
+						}
+				
+						/*0 is top and bottom, auto is left and rigth to fill the container equally*/				
+	.outboundflights	{
+						margin: 0 auto;
+						width:600px;
+						font-size: 24px;
+						}
+	}/*media query*/
+
+/*laptop and desktop and iPad Pro-----------------------------------------------------*/
+/*min width for column is 496px to make sure columns dont get too narrow. 1fr tells browser
+  to distribued the space between the column so that each column is equal to fill the space*/
+  /*auto-fit the content stretches to fill the entire row..auto-fill allows empty columns*/
+  
+@media screen and (min-width: 992px) 
+	{
+  
+  .wrapper 				{
+						grid-template-columns: repeat(auto-fit, minmax(496px, 1fr)); 
+						grid-template-rows:  80px 40px 10px 10px 10px 100px 100px 100px 100px 100px 100px 150px; 
+						/*background-color: teal;*/  
+						}
+  
+  .header 				{
+						font-weight:bold; 
+						line-height: .5em;
+						background-color : #4D148C; 
+						color :  white ; 
+						font-size : 40px; 
+						font-family: "roboto";
+						width:100%;
+						}
+						
+	 
+	
+	fx-dropdownmenu  	{
+						font-size: 28px;
+						}
+	
+	#presort			{
+						padding-left:150px;padding-right:69px;color:var(--fedexpurple);
+						}
+
+	#sort				{
+						padding-right:60px;
+						color:var(--fedexsilver);
+						} 
+
+	#live				{
+						padding-right:60px;
+						color:var(--fedexsilver);
+						}
+
+	#notes				{
+						color:var(--fedexsilver);
+						}
+						
+	.mediumfont			{
+						font-size: 24px;
+						}
+						
+	.largefont			{
+						font-size: 32px;
+						}
+				
+						/*0 is top and bottom, auto is left and rigth to fill the container equally*/				
+	.outboundflights	{
+						margin: 0 auto;
+						width:700px;
+						font-size:24px;
+						}
+	} /*media query*/
+
+
+/*large laptop and desktop*/
+/*flexible width (1fr) but with a minimum 600px width for the columns*/
+
+@media screen and (min-width: 1200px) 
+	{
+	
+	.wrapper 			{
+						grid-template-columns: repeat(auto-fit,1fr 1fr);  
+						grid-template-rows:  80px 40px 10px 10px 10px 120px 120px 120px 120px 120px 120px 150px; 
+						/*background-color: orange;*/ 
+						}
+  
+    .header 	        {
+						font-weight:bold; 
+						line-height:  .5em;
+						background-color : #4D148C; 
+						color :  white ; 
+						font-size : 48px; 
+						font-family: "roboto";
+						width:100%;
+						}
+	
+	fx-dropdownmenu  	{
+						font-size: var(--desktopmenutext);
+						}
+	
+	#presort			{
+						color:var(--fedexpurple);
+						padding-left:190px;padding-right:130px;
+						}
+
+	#sort				{
+						
+						color:var(--fedexsilver);
+						padding-right:130px;
+						} 
+
+	#live				{
+						
+						color:var(--fedexsilver);
+						padding-right:130px;
+						}
+
+	#notes				{
+						color:var(--fedexsilver);
+						}
+						
+						
+	.mediumfont			{
+						font-size: 28px;
+						}
+						
+	.largefont			{
+						font-size: 36px;
+						}
+				
+						/*0 is top and bottom, auto is left and rigth to fill the container equally*/				
+	.outboundflights	{
+						margin: 0 auto;
+						width:800px;
+						font-size:28px;
+						}
+	} /*media query*/
+
+
 </style>
 
 <!--display window/viewport dimensions-->
@@ -548,31 +584,26 @@ startTime()
 
 </head>
 
-<body>
+	<body>
 
-<p id="demo"></p>
+		<p id="demo"></p>
  
-<div class = "wrapper" >
-	
-	 
-		<!--<date-widget style = "position:absolute;top:0px;right:0px;"></date-widget>--> 
+		<div class = "wrapper" >
+			<!--<date-widget style = "position:absolute;top:0px;right:0px;"></date-widget>--> 
+			<button onclick="myFunction()" style = "position:absolute;top:0px;left:0px;">Try it</button> 
 		
-		 <button onclick="myFunction()" style = "position:absolute;top:0px;left:0px;">Try it</button> 
-		
-		<fx-markup class = "header">
-		<div slot = "element-name" style = "text-align:center;padding-top:30px;font-family:roboto;">RADAR Outbound - PDX </div>
-		</fx-markup >
-	 
-		<fx-dropdownmenu height = 70 orientation = left c = white>
-
-		 <a id = "presort" slot = "drop-text1" style = "font-weight:bold;text-decoration:none; " href = "presort.html">PRE-SORT</a> 
-
-		<a id = "sort" slot = "drop-text2" style = "font-weight:bold;text-decoration:none;" href = "sort.html">SORT</a>
-
-		<a id = "live" slot = "drop-text3" style = "font-weight:bold;text-decoration:none;" href = "live.html">LIVE VIEWS</a>
-
-		<a id = "notes" slot = "drop-text4" style = "font-weight:bold;text-decoration:none;" href = "notes.html">MY NOTES</a>
-		</fx-dropdownmenu>
+			<fx-markup class = "header">
+				<div slot = "element-name" style = "text-align:center;padding-top:30px;font-family:roboto;">RADAR Outbound - PDX </div>
+			</fx-markup >
+			
+			 
+			<fx-dropdownmenu height = 60 orientation = left c = white>
+				<a id = "presort" slot = "drop-text1" style = "font-weight:bold;text-decoration:none; " href = "presort.html">PRE-SORT</a> 
+				<a id = "sort" slot = "drop-text2" style = "font-weight:bold;text-decoration:none;" href = "sort.html">SORT</a>
+				<a id = "live" slot = "drop-text3" style = "font-weight:bold;text-decoration:none;" href = "live.html">LIVE VIEWS</a>
+				<a id = "notes" slot = "drop-text4" style = "font-weight:bold;text-decoration:none;" href = "notes.html">MY NOTES</a>
+			</fx-dropdownmenu>
+			 
 	 
 	<!--this is the overlapping box.  Its not an html page but rather the .js.  Its got be 
 	at the end here with a negaative setting in the grid definiation.  Go figure!-->
@@ -608,7 +639,7 @@ startTime()
 
 	<div class="content4">
 		<fx-markup  style="font-weight:bold;"  family = "roboto"><div  slot = "element-name" style = "text-align:center;font-family:roboto;" ><span
-        class = "smallfont purple" style ="text-decoration:underline;cursor:pointer;" onclick="nnn = document.getElementById('myinspection');nnn.style.display = 'block';">SCALE INSPECTION</span>&nbsp;&nbsp;&nbsp;<img src = "scale.PNG" style = "height:35px;" /></div>
+        class = "purple" style ="text-decoration:underline;cursor:pointer;font-size:14px;" onclick="nnn = document.getElementById('myinspection');nnn.style.display = 'block';">SCALE INSPECTION</span>&nbsp;&nbsp;&nbsp;<img src = "scale.PNG" style = "height:35px;" /></div>
 		</fx-markup>
 	</div>
 
@@ -654,11 +685,9 @@ startTime()
 	
 	
 <div class = "outboundflights"> 
-<span style="font-size:16px;color:#4D1486;font-weight:bold;">Inbound Flights</span>
-
-<img src = "pencil.png" style = "height:25px;" onclick="ddd = document.getElementById('myflights');ddd.style.display = 'block';" id = "myBtn" style = "padding-left:10px;"  />	
-	
-<table    id="details"  class = "smallfont"  cellspacing="0" width="100%"> <!--must set the width of table to 100%-->
+	<span style="font-size:16px;color:#4D1486;font-weight:bold;">Inbound Flights</span>
+	<img src = "pencil.png" style = "height:25px;" onclick="ddd = document.getElementById('myflights');ddd.style.display = 'block';" id = "myBtn" style = "padding-left:10px;"  />	
+	<table    id="details"  class = "smallfont"  cellspacing="0" width="100%"> <!--must set the width of table to 100%-->
 				<thead>
 				<tr style = "text-align:left;"> 
 				<th data-sort-initial="true" data-type="numeric" data-class="expand"  data-toggle="true">Flight</th>
@@ -707,8 +736,7 @@ startTime()
 				<td style="border-top:none;">-</td>
 				</tr>
 				<tr >
-</table>
- 
+	</table>
 </div>
 	
 <!--JOB ASSIGNMENTS-->
